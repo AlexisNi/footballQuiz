@@ -5,6 +5,7 @@ var Questions=require('../models/questions');
 
 
 router.get('/',function (req,res,next) {
+    console.log('Get done');
     Questions.find()
         .exec(function (err,questions) {
             if (err){

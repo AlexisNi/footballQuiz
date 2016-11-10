@@ -12,6 +12,8 @@ import {AuthenticationComponent} from "./auth/authentication.component";
 import {HeaderComponent} from "./header.component";
 import {LogoutComponent} from "./auth/logout.component";
 import {MainComponent} from "./MainApp/main.component";
+import {QuestionStructure} from "./questions/question-structure.component";
+import {QuestionService} from "./questions/question.service";
 
 @NgModule({
     declarations: [
@@ -21,10 +23,12 @@ import {MainComponent} from "./MainApp/main.component";
         AuthenticationComponent,
         HeaderComponent,
         LogoutComponent,
-        MainComponent
+        MainComponent,
+        QuestionStructure
+
     ],
     imports: [BrowserModule,FormsModule,routing,ReactiveFormsModule,HttpModule],
-    providers:[AuthService],
+    providers:[AuthService,QuestionService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

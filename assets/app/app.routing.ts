@@ -8,11 +8,13 @@ import {AuthenticationComponent} from "./auth/authentication.component";
 import {AUTH_ROUTES} from "./auth/auth.routes";
 import {LogoutComponent} from "./auth/logout.component";
 import {MainComponent} from "./MainApp/main.component";
+import {QuestionStructure} from "./questions/question-structure.component";
 
 
 const APP_ROUTES:Routes =[
-    {path:'',redirectTo:'auth',pathMatch:'full'},
+    {path:'',redirectTo:'questions',pathMatch:'full'},
     {path:'mainApp',component:MainComponent},
+    {path:'questions',component:QuestionStructure},
     {path:'auth',component:AuthenticationComponent,children:AUTH_ROUTES}
 
 
