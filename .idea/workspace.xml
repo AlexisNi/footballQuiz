@@ -1,60 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7be9373-c08a-489a-b92f-c1d174d34b88" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/Quiz.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/alex.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/MainApp/main.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/MainApp/main.component.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/app.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/app.component.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/app.module.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/app.routing.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/auth/auth.routes.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/auth/auth.service.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/auth/authentication.component.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/auth/login.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/auth/login.component.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/auth/logout.component.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/auth/signup.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/auth/signup.component.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/auth/user.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/header.component.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/main.aot.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/main.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/app/polyfills.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/www" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/bootstrap-theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/css/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/css/bootstrap-theme.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/css/bootstrap-theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/css/bootstrap-theme.min.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/css/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/css/bootstrap.min.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/how-to-use.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/token.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/user.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/app/bundle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/user.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tsconfig.aot.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tsconfig.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/index.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack.config.common.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack.config.dev.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack.config.prod.js" />
-    </list>
+    <list default="true" id="b7be9373-c08a-489a-b92f-c1d174d34b88" name="Default" comment="" />
     <ignored path="Quiz.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -89,8 +36,8 @@
       <file leaf-file-name="questions.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/questions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="669">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="85">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -366,12 +313,12 @@
       <workItem from="1478424286165" duration="8202000" />
       <workItem from="1478514216544" duration="11783000" />
       <workItem from="1478595837757" duration="21361000" />
-      <workItem from="1478768999632" duration="639000" />
+      <workItem from="1478768999632" duration="764000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46005000" />
+    <option name="totallyTimeSpent" value="46130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
@@ -731,8 +678,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/questions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="85">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
