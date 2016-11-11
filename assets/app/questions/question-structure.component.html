@@ -1,38 +1,35 @@
+
+<!DOCTYPE html>
 <div class="container">
 
     <div class="row">
-        <div class="col-md-4 col-lg-offset-4">
-          <h1 >Erwtisi :{{question}}  </h1>
-            <a (click)="nextQuestion()" >Next</a>
-
+        <div  class="col-md-12 col-md-offset-2" style="background-color: green">
+            <h1 >{{question}}  </h1>
         </div>
     </div>
+    <br><br>
 
 
 
 
     <div class="row">
-        <div class="col-md-2 col-lg-offset-2">
-            <h3>OptionA</h3>
+        <div class="col-md-2 col-md-offset-2">
+            <button class="btn-primary" (click)="nextQuestion()">{{optionA}}</button>
         </div>
-        <div class="col-md-2 col-lg-offset-2">
-            <h3>OptionB</h3>
+        <div class="col-md-2 col-md-offset-1">
+            <button class="btn-primary" (click)="nextQuestion()">{{optionB}}</button>
         </div>
     </div>
+    <br><br>
 
 
     <div class="row">
-        <div class="col-md-2 col-lg-offset-2">
-            <h3>OptionC</h3>
+        <div class="col-md-2 col-md-offset-2">
+            <button class="btn-primary" (click)="nextQuestion()">{{optionC}}</button>
         </div>
-        <div class="col-md-2 col-lg-offset-2">
-            <h3>OptionD</h3>
+        <div class="col-md-2 col-md-offset-1">
+            <button class="btn-primary" (click)="nextQuestion()">{{optionD}}</button>
         </div>
     </div>
-
-
-
-
-
 
 </div>

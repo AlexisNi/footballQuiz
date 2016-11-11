@@ -9,6 +9,7 @@ import {AUTH_ROUTES} from "./auth/auth.routes";
 import {LogoutComponent} from "./auth/logout.component";
 import {MainComponent} from "./MainApp/main.component";
 import {QuestionStructure} from "./questions/question-structure.component";
+import {QuestionReceiver} from "./questions/question-receiver.component";
 
 
 const APP_ROUTES:Routes =[

@@ -14,6 +14,8 @@ import {LogoutComponent} from "./auth/logout.component";
 import {MainComponent} from "./MainApp/main.component";
 import {QuestionStructure} from "./questions/question-structure.component";
 import {QuestionService} from "./questions/question.service";
+import {QuestionReceiver} from "./questions/question-receiver.component";
+import {MaterialRootModule} from "@angular/material";
 
 @NgModule({
     declarations: [
@@ -24,10 +26,11 @@ import {QuestionService} from "./questions/question.service";
         HeaderComponent,
         LogoutComponent,
         MainComponent,
-        QuestionStructure
+        QuestionStructure,
+        QuestionReceiver
 
     ],
-    imports: [BrowserModule,FormsModule,routing,ReactiveFormsModule,HttpModule],
+    imports: [BrowserModule,FormsModule,routing,ReactiveFormsModule,HttpModule,MaterialRootModule],
     providers:[AuthService,QuestionService],
     bootstrap: [AppComponent]
 })

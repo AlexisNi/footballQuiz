@@ -7,10 +7,8 @@ import {QuestionService} from "./question.service";
     templateUrl: './question-structure.component.html'
 })
 export class QuestionStructure implements OnInit{
-    constructor(private questionService:QuestionService){
+    constructor(private questionService:QuestionService){}
 
-
-    }
     questions:Question[]=[];
     index=0;
     myQuestion;
@@ -19,16 +17,21 @@ export class QuestionStructure implements OnInit{
     optionB;
     optionC;
     optionD;
+    answer;
 
     ngOnInit(): any {
 
 
-        this.getQuestions();
+    this.getQuestions();
+
 
     }
 
+
+
+
     getQuestions(){
-        this.questionService.getQuestions()
+       return  this.questionService.getQuestions()
             .subscribe(
                 (questions:Question[])=>{
                     this.questions=questions;
@@ -41,11 +44,21 @@ export class QuestionStructure implements OnInit{
 
     getQuestion(){
         this.question=this.questions[this.index].question;
+        this.optionA=this.questions[this.index].optionA;
+        this.optionB=this.questions[this.index].optionB;
+        this.optionC=this.questions[this.index].optionC;
+        this.optionD=this.questions[this.index].optionD;
+        this.answer=this.questions[this.index].answer;
     }
 
     nextQuestion(){
         this.index++;
         this.getQuestion();
+    }
+
+   checkBtnA(){
+
+
     }
 
 
