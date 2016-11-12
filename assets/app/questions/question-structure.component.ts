@@ -10,19 +10,16 @@ export class QuestionStructure implements OnInit{
     constructor(private questionService:QuestionService){}
 
     questions:Question[]=[];
-    index=0;
-    myQuestion;
-    question;
-    optionA;
-    optionB;
-    optionC;
-    optionD;
-    answer;
+    iindex=0;
+
+    rightQuestions:Question[]=[];
+    wrongQuestions :Question[]=[];
+    testQuestion :Question[]=[];
 
     ngOnInit(): any {
 
 
-    this.getQuestions();
+        this.getQuestions();
 
 
     }
@@ -31,33 +28,46 @@ export class QuestionStructure implements OnInit{
 
 
     getQuestions(){
-       return  this.questionService.getQuestions()
+        return  this.questionService.getQuestions()
             .subscribe(
                 (questions:Question[])=>{
                     this.questions=questions;
-                    this.getQuestion();
-                }
-            );
+                    this.testQuestion.push(this.questions[1]);
+                });
 
     }
 
 
-    getQuestion(){
-        this.question=this.questions[this.index].question;
-        this.optionA=this.questions[this.index].optionA;
-        this.optionB=this.questions[this.index].optionB;
-        this.optionC=this.questions[this.index].optionC;
-        this.optionD=this.questions[this.index].optionD;
-        this.answer=this.questions[this.index].answer;
-    }
+
 
     nextQuestion(){
-        this.index++;
-        this.getQuestion();
+        this.iindex++;
     }
+    onChooseQuestion(activeQuestion:Question,answerChoice:Object){
 
-   checkBtnA(){
+        if(activeQuestion.answer===answerChoice){
+            console.log('Right Answer!!!!');
+            this.rightQuestions.push(activeQuestion);
+            this.nextQuestion();
 
+        }else {
+
+         var question:Question[]=[];
+            question.push(activeQuestion);
+            console.log(question);
+
+
+            this.wrongQuestions.push(activeQuestion);
+            console.log( this.wrongQuestions.length)
+            console.log('Wrong Answer!!!!');
+            console.log('The answer is :');
+            console.log(activeQuestion.answer);
+            this.nextQuestion();
+
+
+
+
+        }
 
     }
 
