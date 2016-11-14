@@ -27,6 +27,8 @@ router.post('/', function (req, res, next) {
     });
 });
 
+
+
 router.post('/signin',function (req,res,next) {
     User.findOne({email:req.body.email},function (err,user) {
         if (err) {
@@ -53,6 +55,31 @@ router.post('/signin',function (req,res,next) {
             message:'Succefully logged in',
             userId:user._id,
             token:token
+        });
+
+
+    });
+});
+
+router.post('/find',function (req,res,next) {
+    console.log(req.body);
+
+    User.findOne({lastName:req.body.lastName},function (err,user) {
+        if (err) {
+            return res.status(500).json({
+                title: 'An error occurred',
+                error: err
+            });
+        }
+        if(!user){
+            return res.status(400).json({
+                title:'User Not Found',
+                error:{Message:'User Not Found'}
+            });
+        }
+        res.status(200).json({
+            message:'User Found',
+            lastName:user.lastName
         });
 
 

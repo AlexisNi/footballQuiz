@@ -14,8 +14,9 @@ import {LogoutComponent} from "./auth/logout.component";
 import {MainComponent} from "./MainApp/main.component";
 import {QuestionStructure} from "./questions/question-structure.component";
 import {QuestionService} from "./questions/question.service";
-import {QuestionReceiver} from "./questions/question-receiver.component";
 import {MaterialRootModule} from "@angular/material";
+import {OpponentComponentFind} from "./MainApp/opponent-find.component";
+import {MainAppService} from "./MainApp/mainApp.services";
 
 @NgModule({
     declarations: [
@@ -27,11 +28,11 @@ import {MaterialRootModule} from "@angular/material";
         LogoutComponent,
         MainComponent,
         QuestionStructure,
-        QuestionReceiver
+        OpponentComponentFind
 
     ],
     imports: [BrowserModule,FormsModule,routing,ReactiveFormsModule,HttpModule,MaterialRootModule],
-    providers:[AuthService,QuestionService],
+    providers:[AuthService,QuestionService,MainAppService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

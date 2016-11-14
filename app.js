@@ -8,6 +8,7 @@ var logger=require('morgan');
 var appRoutes = require('./routes/app');
 var userRoutes= require('./routes/user');
 var questionRoutes=require('./routes/questions');
+var questionAns=require('./routes/questionANS');
 var passport=require('passport');
 var app = express();
 
@@ -33,7 +34,9 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
     next();
 });
+
 app.use('/question',questionRoutes);
+app.use('/questionANS',questionAns);
 app.use('/user', userRoutes);
 app.use('/', appRoutes);
 

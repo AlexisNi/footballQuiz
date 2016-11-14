@@ -1,70 +1,66 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Question} from "./question";
 import {QuestionService} from "./question.service";
+import {QuestionANS} from "./questionANS";
 
 @Component({
-    selector: 'my-questionStr',
+    selector: 'my-questionScore',
     templateUrl: './question-structure.component.html'
 })
 export class QuestionStructure implements OnInit{
     constructor(private questionService:QuestionService){}
-
     questions:Question[]=[];
-    iindex=0;
-
-    rightQuestions:Question[]=[];
-    wrongQuestions :Question[]=[];
-    testQuestion :Question[]=[];
+    index=0;
+    answerQuestion:QuestionANS[]=[];
 
     ngOnInit(): any {
-
-
         this.getQuestions();
-
-
+        this.getQuestionsANS();
     }
-
-
-
-
     getQuestions(){
         return  this.questionService.getQuestions()
             .subscribe(
                 (questions:Question[])=>{
-                    this.questions=questions;
-                    this.testQuestion.push(this.questions[1]);
-                });
+                this.questions=questions;
 
+                });
     }
 
-
-
+    getQuestionsANS(){
+        return  this.questionService.getAnsweredQuestions()
+            .subscribe(
+                (questions:QuestionANS[])=>{
+                    this.answerQuestion=questions;
+                    console.log(questions.length)
+                });
+    }
 
     nextQuestion(){
-        this.iindex++;
+        this.index++;
     }
-    onChooseQuestion(activeQuestion:Question,answerChoice:Object){
 
+    onChooseQuestion(activeQuestion:Question,answerChoice:Object){
         if(activeQuestion.answer===answerChoice){
             console.log('Right Answer!!!!');
-            this.rightQuestions.push(activeQuestion);
-            this.nextQuestion();
+
+            var  questionAns=new QuestionANS(activeQuestion.questionId,true);
+            this.questionService.saveAnswerdQuestion(questionAns)
+                .subscribe(
+                    data => console.log(data),
+                    error => console.error(error)
+                );
+            this.nextQuestion()
+
+
 
         }else {
 
-         var question:Question[]=[];
-            question.push(activeQuestion);
-            console.log(question);
-
-
-            this.wrongQuestions.push(activeQuestion);
-            console.log( this.wrongQuestions.length)
-            console.log('Wrong Answer!!!!');
-            console.log('The answer is :');
-            console.log(activeQuestion.answer);
-            this.nextQuestion();
-
-
+            var  questionAns=new QuestionANS(activeQuestion.questionId,false);
+            this.questionService.saveAnswerdQuestion(questionAns)
+                .subscribe(
+                    data => console.log(data),
+                    error => console.error(error)
+                );
 
 
         }
