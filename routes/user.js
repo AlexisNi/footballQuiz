@@ -50,7 +50,7 @@ router.post('/signin',function (req,res,next) {
                 error:{Message:'Invalid Login Credentials'}
             });
         }
-        var token=jwt.sign({user:user},'secret',{expiresIn:7200});
+        var token=jwt.sign({user:user},'secret',{expiresIn:72000});
         res.status(200).json({
             message:'Succefully logged in',
             userId:user._id,
@@ -79,7 +79,8 @@ router.post('/find',function (req,res,next) {
         }
         res.status(200).json({
             message:'User Found',
-            lastName:user.lastName
+            lastName:user.lastName,
+            inviteId:user._id
         });
 
 

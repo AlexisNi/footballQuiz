@@ -14,7 +14,11 @@
 
 
 
-        <div *ngIf="userName && searched " >User Found : {{userName}}</div>
+        <div *ngIf="userName && searched " >
+            {{inviteId}}
+              <p>User Found : {{userName}}</p>
+               <button class="btn btn-primary" type="button" (click)="playWith(inviteId)">Play with : {{userName}}</button>
+        </div>
         <div *ngIf="!userName && searched " >User Not Found</div>
 
 

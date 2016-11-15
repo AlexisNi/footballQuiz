@@ -9,6 +9,7 @@ var appRoutes = require('./routes/app');
 var userRoutes= require('./routes/user');
 var questionRoutes=require('./routes/questions');
 var questionAns=require('./routes/questionANS');
+var arenaRoutes=require('./routes/arena');
 var passport=require('passport');
 var app = express();
 
@@ -35,6 +36,7 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use('/arena',arenaRoutes);
 app.use('/question',questionRoutes);
 app.use('/questionANS',questionAns);
 app.use('/user', userRoutes);

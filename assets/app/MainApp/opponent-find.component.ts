@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl,  Validators} from "@angular/forms";
 import {MainAppService} from "./mainApp.services";
 import {User} from "../auth/user";
+import {ArenaUsers} from "./arenaUsers";
 
 
 @Component({
@@ -14,7 +15,9 @@ import {User} from "../auth/user";
 export class OpponentComponentFind implements OnInit{
     myForm:FormGroup;
     userName;
-    searched;
+    inviteId;
+    searched=false;
+
     constructor(private mainappservices:MainAppService){}
     ngOnInit(): void {
         this.myForm=new FormGroup({
@@ -32,9 +35,26 @@ export class OpponentComponentFind implements OnInit{
                     console.log(data);
                     console.log(data.lastName);
                     this.userName=data.lastName;
+                    this.inviteId=data.inviteId;
+
                 },
-                error=>console.error(error)
+                error=>console.error(error),
+                this.userName=null
             );
+    }
+
+    playWith(inviteId:string){
+       var userId= localStorage.getItem('userId');
+        var arenaUser=new ArenaUsers(userId,inviteId);
+
+        this.mainappservices.createArena(arenaUser)
+            .subscribe(
+                data => console.log(data),
+                error => console.error(error)
+            );
+
+
+
     }
 
 
