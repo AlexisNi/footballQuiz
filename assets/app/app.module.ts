@@ -17,6 +17,7 @@ import {QuestionService} from "./questions/question.service";
 import {MaterialRootModule} from "@angular/material";
 import {OpponentComponentFind} from "./MainApp/opponent-find.component";
 import {MainAppService} from "./MainApp/mainApp.services";
+import {GameListcomponent} from "./MainApp/game-list/game-list.component";
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import {MainAppService} from "./MainApp/mainApp.services";
         LogoutComponent,
         MainComponent,
         QuestionStructure,
-        OpponentComponentFind
+        OpponentComponentFind,
+        GameListcomponent
 
     ],
     imports: [BrowserModule,FormsModule,routing,ReactiveFormsModule,HttpModule,MaterialRootModule],

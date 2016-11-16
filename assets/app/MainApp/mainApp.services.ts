@@ -32,10 +32,21 @@ export class MainAppService{
             .catch((error: Response) =>Observable.throw(error.json()));
 
     }
-    findQuestionArena(user:User){
+/*    getArenas(){
+        return this.http.get('http://localhost:3000/arena/arenas')
+            .map((response: Response) => {
+                const questions = response.json().obj;
+                let transformedMessages: ArenaUsers[] = [];
+                for (let question of questions) {
+                    transformedMessages.push(new ArenaUsers(
+                        question.
+                    ));
+                }
+                return transformedMessages;
+            })
+            .catch((error: Response) =>Observable.throw(error.json()));
 
-
-    }
+    }*/
 
 
 }
