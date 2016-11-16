@@ -32,21 +32,25 @@ export class MainAppService{
             .catch((error: Response) =>Observable.throw(error.json()));
 
     }
-/*    getArenas(){
-        return this.http.get('http://localhost:3000/arena/arenas')
+    getArenas(){
+        const token=localStorage.getItem('token')? '?token='+localStorage.getItem('token') : '';
+        return this.http.get('http://localhost:3000/arena/arenas'+token)
             .map((response: Response) => {
-                const questions = response.json().obj;
-                let transformedMessages: ArenaUsers[] = [];
-                for (let question of questions) {
-                    transformedMessages.push(new ArenaUsers(
-                        question.
+                const arenas = response.json().obj;
+                let transformedArenas: ArenaUsers[] = [];
+                for (let arena of arenas) {
+                    transformedArenas.push(new ArenaUsers(
+                        arena.user._id,
+                        arena.invite,
+                        arena.status_accept,
+                        arena.user.lastName
                     ));
                 }
-                return transformedMessages;
+                return transformedArenas;
             })
             .catch((error: Response) =>Observable.throw(error.json()));
 
-    }*/
+    }
 
 
 }

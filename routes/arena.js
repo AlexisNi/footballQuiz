@@ -52,7 +52,7 @@ router.post('/', function (req, res, next) {
                 user.save();
             });
 
-            User.findById(arenaUser.invite_id,function (err,user) {
+            User.findById(arenaUser.invite,function (err,user) {
                 if (err){
                     return res.status(500).json({
                         title:'An error occured',
@@ -78,10 +78,9 @@ router.post('/', function (req, res, next) {
 
 
 router.get('/arenas',function (req,res,next) {
-    console.log('post done');
     var decoded=jwt.decode(req.query.token);
     console.log(decoded);
-    ArenaUser.find({user:'582a33c92e09f20a4873c085'})
+    ArenaUser.find({user:decoded.user._id})
         .populate('user','lastName')
         .exec(function (err,arenas) {
             if (err){

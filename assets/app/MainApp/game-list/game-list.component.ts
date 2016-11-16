@@ -7,20 +7,23 @@ import {ArenaUsers} from "../arenaUsers";
 
 @Component({
     selector:'game-list',
-    template: `HERE THE GAME LIST
+    template: `<div class="col-md-8 col-md-offset-2">
+                <game-item *ngFor="let arena of arenas" [arena]="arena"></game-item>
+               </div>
                 `,
 
 })
 
 export  class GameListcomponent implements OnInit{
-/*    constructor(private mainAppService:MainAppService){}
-    arena:ArenaUsers[];
+    constructor(private mainAppService:MainAppService){}
+    arenas:ArenaUsers[];
     ngOnInit(): void {
         this.mainAppService.getArenas()
             .subscribe(
-                (data)=> {
-                    console.log(data)
+                (arena:ArenaUsers[])=> {
+                    this.arenas=arena
+                    console.log(arena)
 
                 });
-    }*/
+    }
 }

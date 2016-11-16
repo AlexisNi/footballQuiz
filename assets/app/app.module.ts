@@ -18,6 +18,7 @@ import {MaterialRootModule} from "@angular/material";
 import {OpponentComponentFind} from "./MainApp/opponent-find.component";
 import {MainAppService} from "./MainApp/mainApp.services";
 import {GameListcomponent} from "./MainApp/game-list/game-list.component";
+import {GameItemComponent} from "./MainApp/game-list/game-item.component";
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import {GameListcomponent} from "./MainApp/game-list/game-list.component";
         MainComponent,
         QuestionStructure,
         OpponentComponentFind,
-        GameListcomponent
+        GameListcomponent,
+        GameItemComponent
 
     ],
     imports: [BrowserModule,FormsModule,routing,ReactiveFormsModule,HttpModule,MaterialRootModule],
