@@ -41,7 +41,7 @@ router.post('/', function (req, res, next) {
             }
             user.arenas.push(result);
             user.save();
-            User.findById(arenaUser.invite_id,function (err,user) {
+            User.findById(arenaUser.invite,function (err,user) {
                 if (err){
                     return res.status(500).json({
                         title:'An error occured',
@@ -59,7 +59,8 @@ router.post('/', function (req, res, next) {
                         error:err
                     });
                 }
-            });res.status(201).json({
+            });
+            res.status(201).json({
                 message:'Saved Message',
                 obj:result
             });
