@@ -25,10 +25,15 @@ export class MainAppService{
 
     createArena(arenaUser:ArenaUsers){
         const body = JSON.stringify(arenaUser);
+        const token=localStorage.getItem('token')? '?token='+localStorage.getItem('token') : '';
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post('http://localhost:3000/arena', body, {headers: headers})
+        return this.http.post('http://localhost:3000/arena'+token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) =>Observable.throw(error.json()));
+
+    }
+    findQuestionArena(user:User){
+
 
     }
 
