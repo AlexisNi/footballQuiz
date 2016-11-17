@@ -80,7 +80,7 @@ router.post('/', function (req, res, next) {
 router.get('/arenas',function (req,res,next) {
     var decoded=jwt.decode(req.query.token);
     console.log(decoded);
-    ArenaUser.find({user:decoded.user._id})
+    ArenaUser.find({$or:[{user:decoded.user._id} ,{invite:decoded.user._id}]})
         .populate('user','lastName')
         .exec(function (err,arenas) {
             if (err){
