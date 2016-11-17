@@ -27,11 +27,26 @@ router.post('/', function (req, res, next) {
                 error:err
             });
         }
+
+
+        User.findById(req.body.inviteId,function (err,userInvite) {
+            if (err) {
+                return res.status(500).json({
+                    title: 'An error occured',
+                    error: err
+                });
+            }
+
+
+
+
         var arenaUser = new ArenaUser({
             user:user,
-            invite:req.body.inviteId,
+            invite:userInvite,
             status_accept:false
         });
+
+
         arenaUser.save(function(err, result) {
             if (err) {
                 return res.status(500).json({
@@ -39,27 +54,12 @@ router.post('/', function (req, res, next) {
                     error: err
                 });
             }
+
             user.arenas.push(result);
             user.save();
-            User.findById(arenaUser.invite,function (err,user) {
-                if (err){
-                    return res.status(500).json({
-                        title:'An error occured',
-                        error:err
-                    });
-                }
-                user.arenas.push(result);
-                user.save();
-            });
+            userInvite.arenas.push(result);
+            userInvite.save();
 
-            User.findById(arenaUser.invite,function (err,user) {
-                if (err){
-                    return res.status(500).json({
-                        title:'An error occured',
-                        error:err
-                    });
-                }
-            });
             res.status(201).json({
                 message:'Saved Message',
                 obj:result
@@ -68,7 +68,7 @@ router.post('/', function (req, res, next) {
     });
 
 
-
+        });
     });
 
 });
@@ -79,21 +79,34 @@ router.post('/', function (req, res, next) {
 
 router.get('/arenas',function (req,res,next) {
     var decoded=jwt.decode(req.query.token);
-    console.log(decoded);
-    ArenaUser.find({$or:[{user:decoded.user._id} ,{invite:decoded.user._id}]})
-        .populate('user','lastName')
-        .exec(function (err,arenas) {
-            if (err){
-                return res.status(500).json({
-                    title:'An error occured',
-                    error:err
-                });
-            }
-            res.status(200).json({
-                message:'success',
-                obj:arenas
+
+        ArenaUser.find({user:decoded.user._id})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE USER ROW AND SHOW THE LAST NAME OF INVITE
+            .populate('invite', 'lastName')
+            .exec(function (err, arenas) {
+                if (err) {
+                    return res.status(500).json({
+                        title: 'An error occured',
+                        error: err
+                    });
+                }
+                ArenaUser.find({invite: decoded.user._id})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE INVITE ROW AND SHOWS THE LAST NAME OF THE USER
+                    .populate('user', 'lastName')
+                    .exec(function (err, arenasUser) {
+                        if (err) {
+                            return res.status(500).json({
+                                title: 'An error occured',
+                                error: err
+                            });
+                        }
+
+
+                        res.status(200).json({
+                            message: 'success',
+                            obj: arenas,
+                            objUser: arenasUser
+                        });
+                    });
             });
-        });
 });
 
 

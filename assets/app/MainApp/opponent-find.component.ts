@@ -3,6 +3,7 @@ import {FormGroup, FormControl,  Validators} from "@angular/forms";
 import {MainAppService} from "./mainApp.services";
 import {User} from "../auth/user";
 import {ArenaUsers} from "./arenaUsers";
+import {ArenaPlayers} from "./arenaPlayers";
 
 
 @Component({
@@ -45,9 +46,9 @@ export class OpponentComponentFind implements OnInit{
 
     playWith(inviteId:string){
        var userId= localStorage.getItem('userId');
-        var arenaUser=new ArenaUsers(userId,inviteId);
+        var arenaPlayer=new ArenaPlayers(userId,inviteId);
 
-        this.mainappservices.createArena(arenaUser)
+        this.mainappservices.createArena(arenaPlayer)
             .subscribe(
                 data => console.log(data),
                 error => console.error(error)
