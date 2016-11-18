@@ -39,7 +39,7 @@ import {ArenaUsers} from "../arenaUsers";
 })
 
 export class GameItemComponent{
-    @Input() arena:ArenaUsers
+    @Input() arena:ArenaUsers;
 
     constructor(private mainAppService:MainAppService){}
 
