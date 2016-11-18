@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {Injectable,EventEmitter} from "@angular/core";
 import {Http, Headers, Response} from "@angular/http";
 import 'rxjs/Rx';
 import {Observable} from "rxjs";
@@ -10,6 +10,7 @@ import {ArenaPlayers} from "./arenaPlayers";
 
 @Injectable()
 export class MainAppService{
+    private arenas:ArenaUsers[];
     constructor(private http:Http){}
 
 
@@ -29,14 +30,19 @@ export class MainAppService{
         const token=localStorage.getItem('token')? '?token='+localStorage.getItem('token') : '';
         const headers = new Headers({'Content-Type': 'application/json'});
         return this.http.post('http://localhost:3000/arena'+token, body, {headers: headers})
-            .map((response: Response) => response.json())
+            .map((response: Response) => {
+                console.log(response.json().obj);
+                const arenaUsers = new ArenaUsers(response.json().obj._id, response.json().obj.user, response.json().obj.invite,response.json().obj.status_accept,response.json().obj.invite.lastName);
+                this.arenas.push(arenaUsers);
+                return arenaUsers;
+            })
             .catch((error: Response) =>Observable.throw(error.json()));
 
     }
     getArenas(){
         const token=localStorage.getItem('token')? '?token='+localStorage.getItem('token') : '';
         return this.http.get('http://localhost:3000/arena/arenas'+token)
-            .map((response: Response) => {
+                .map((response: Response) => {
                 const arenas = response.json().obj;
                 let transformedArenas: ArenaUsers[] = [];
                 for (let arena of arenas) {
@@ -58,8 +64,8 @@ export class MainAppService{
                         userArena.user.lastName
                     ));
                 }
-
-                return transformedArenas ;
+                    this.arenas=transformedArenas;
+                    return transformedArenas ;
             })
             .catch((error: Response) =>Observable.throw(error.json()));
 
@@ -67,3 +73,4 @@ export class MainAppService{
 
 
 }
+

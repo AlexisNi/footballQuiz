@@ -15,7 +15,7 @@ import {MainComponent} from "./MainApp/main.component";
 import {QuestionStructure} from "./questions/question-structure.component";
 import {QuestionService} from "./questions/question.service";
 import {MaterialRootModule} from "@angular/material";
-import {OpponentComponentFind} from "./MainApp/opponent-find.component";
+import {OpponentComponentFind} from "./MainApp/opponent-find/opponent-find.component";
 import {MainAppService} from "./MainApp/mainApp.services";
 import {GameListcomponent} from "./MainApp/game-list/game-list.component";
 import {GameItemComponent} from "./MainApp/game-list/game-item.component";

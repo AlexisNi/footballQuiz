@@ -25,6 +25,20 @@ export  class AuthService{
                 }
 
 
+    getUser(){
+        const token=localStorage.getItem('token')? '?token='+localStorage.getItem('token') : '';
+        return this.http.get('http://localhost:3000/user'+token)
+            .map((response : Response)=>{
+                const user=response.json().obj.lastName;
+
+                return user;
+
+            })
+            .catch((error: Response) =>Observable.throw(error.json()));
+
+    }
+
+
     logout(){
         localStorage.clear();
     }

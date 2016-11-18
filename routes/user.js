@@ -27,6 +27,35 @@ router.post('/', function (req, res, next) {
     });
 });
 
+router.get('/',function (req,res,next) {
+    var decoded=jwt.decode(req.query.token);
+    console.log(decoded.user._id);
+    User.findOne({_id:decoded.user._id},'lastName',function (err,user) {
+        if (err) {
+            return res.status(500).json({
+                title: 'An error occurred',
+                error: err
+            });
+        }
+
+        if(!user){
+            return res.status(404).json({
+                title:'Not Found',
+                error:{Message:'User not in the list'}
+            });
+        }
+
+
+        res.status(200).json({
+            message:'User Found',
+            obj:user
+        });
+
+    });
+
+
+});
+
 
 
 router.post('/signin',function (req,res,next) {
@@ -86,5 +115,8 @@ router.post('/find',function (req,res,next) {
 
     });
 });
+
+
+
 module.exports=router;
 
