@@ -3,7 +3,7 @@ var router = express.Router();
 var Questions=require('../models/questions');
 
 
-
+/*
 router.get('/',function (req,res,next) {
     console.log('Get done');
     Questions.find()
@@ -23,8 +23,20 @@ router.get('/',function (req,res,next) {
 
 
 });
+*/
 
+router.get('/',function (req,res,next) {
+    Questions.syncRandom(function (err,result) {
+        console.log(result.updated);
+    });
+    Questions.findRandom().limit(2).exec(function (err, questions) {
+        console.log(questions);
+        res.status(201).json({
+            message:'Questions Found',
+            obj:questions
+        });
+    });
 
-
+});
 module.exports=router;
 

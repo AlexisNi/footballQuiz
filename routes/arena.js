@@ -3,6 +3,8 @@ var router = express.Router();
 var ArenaUser=require('../models/arena');
 var User=require('../models/user');
 var jwt=require('jsonwebtoken');
+var Questions=require('../models/questions');
+
 /*router.use('/',function (req,res,next) {
     jwt.verify(req.query.token,'secret',function (err,decoded) {
         if(err){
@@ -37,13 +39,19 @@ router.post('/', function (req, res, next) {
                 });
             }
 
-
-
+            Questions.findRandom().limit(2).exec(function (err, questions) {
+                if (err) {
+                    return res.status(500).json({
+                        title: 'An error occured',
+                        error: err
+                    });
+                }
 
         var arenaUser = new ArenaUser({
             user:user,
             invite:userInvite,
-            status_accept:false
+            status_accept:false,
+            questions:questions
         });
 
 
@@ -107,6 +115,7 @@ router.get('/arenas',function (req,res,next) {
                         });
                     });
             });
+        });
 });
 
 
