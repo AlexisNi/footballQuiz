@@ -10,7 +10,7 @@ import {ArenaPlayers} from "./arenaPlayers";
 
 @Injectable()
 export class MainAppService{
-    private arenas:ArenaUsers[];
+    private arenas:ArenaUsers[]=[];
     constructor(private http:Http){}
 
 
@@ -31,7 +31,6 @@ export class MainAppService{
         const headers = new Headers({'Content-Type': 'application/json'});
         return this.http.post('http://localhost:3000/arena'+token, body, {headers: headers})
             .map((response: Response) => {
-                console.log(response.json().obj);
                 const arenaUsers = new ArenaUsers(response.json().obj._id, response.json().obj.user,
                     response.json().obj.invite,response.json().obj.status_accept,response.json().obj.invite.lastName,response.json().obj.questions);
                 this.arenas.push(arenaUsers);
@@ -45,7 +44,6 @@ export class MainAppService{
         return this.http.get('http://localhost:3000/arena/arenas'+token)
                 .map((response: Response) => {
                 const arenas = response.json().obj;
-                console.log(arenas) ;
                 let transformedArenas: ArenaUsers[] = [];
                 for (let arena of arenas) {
                     transformedArenas.push(new ArenaUsers(
@@ -54,7 +52,6 @@ export class MainAppService{
                         arena.invite._id,
                         arena.status_accept,
                         arena.user.lastName || arena.invite.lastName,
-                        arena.questions
                     ));
                 }
                 const UserArenas=response.json().objUser;
@@ -73,6 +70,8 @@ export class MainAppService{
             .catch((error: Response) =>Observable.throw(error.json()));
 
     }
+
+
 
 
 }

@@ -19,6 +19,7 @@ import {OpponentComponentFind} from "./MainApp/opponent-find/opponent-find.compo
 import {MainAppService} from "./MainApp/mainApp.services";
 import {GameListcomponent} from "./MainApp/game-list/game-list.component";
 import {GameItemComponent} from "./MainApp/game-list/game-item.component";
+import {ArenaComponent} from "./MainApp/arena/arena.component";
 
 @NgModule({
     declarations: [
@@ -32,7 +33,9 @@ import {GameItemComponent} from "./MainApp/game-list/game-item.component";
         QuestionStructure,
         OpponentComponentFind,
         GameListcomponent,
-        GameItemComponent
+        GameItemComponent,
+        ArenaComponent
+
 
     ],
     imports: [BrowserModule,FormsModule,routing,ReactiveFormsModule,HttpModule,MaterialRootModule],

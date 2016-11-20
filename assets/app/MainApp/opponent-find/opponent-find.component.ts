@@ -20,6 +20,7 @@ export class OpponentComponentFind implements OnInit{
     searched=false;
 
     constructor(private mainappservices:MainAppService){}
+
     ngOnInit(): void {
         this.myForm=new FormGroup({
             userName:new FormControl(null,Validators.required)

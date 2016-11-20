@@ -9,6 +9,7 @@ import {ArenaUsers} from "../arenaUsers";
 @Component({
     selector:'game-item',
     template: `
+<a [routerLink]="1" class="list-group-item clearfix" routerLinkActive="active"> 
     <article class="panel panel-default" [ngStyle]="{backgroundColor: color}">
     <div class="panel-body">
         {{arena?.lastName}}
@@ -18,7 +19,8 @@ import {ArenaUsers} from "../arenaUsers";
             {{arena?.status_accept}}
         </div>
     </footer>
-</article>`,
+    </article>
+</a>`,
     styles:[`
         .author{
         display:inline-block;

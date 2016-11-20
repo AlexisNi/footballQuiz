@@ -38,6 +38,9 @@ router.post('/', function (req, res, next) {
                     error: err
                 });
             }
+           /* Questions.syncRandom(function (err, result) {
+                console.log(result.updated);
+            });*/
 
             Questions.findRandom().limit(2).exec(function (err, questions) {
                 if (err) {
@@ -80,14 +83,13 @@ router.post('/', function (req, res, next) {
     });
 
 });
-
+});
 
 
 
 
 router.get('/arenas',function (req,res,next) {
     var decoded=jwt.decode(req.query.token);
-
         ArenaUser.find({user:decoded.user._id})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE USER ROW AND SHOW THE LAST NAME OF INVITE
             .populate('invite', 'lastName')
             .exec(function (err, arenas) {
@@ -97,7 +99,7 @@ router.get('/arenas',function (req,res,next) {
                         error: err
                     });
                 }
-                ArenaUser.find({invite: decoded.user._id})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE INVITE ROW AND SHOWS THE LAST NAME OF THE USER
+               ArenaUser.find({invite: decoded.user._id})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE INVITE ROW AND SHOWS THE LAST NAME OF THE USER
                     .populate('user', 'lastName')
                     .exec(function (err, arenasUser) {
                         if (err) {
@@ -116,7 +118,7 @@ router.get('/arenas',function (req,res,next) {
                     });
             });
         });
-});
+
 
 
 

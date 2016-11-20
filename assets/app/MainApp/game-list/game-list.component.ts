@@ -23,7 +23,6 @@ export  class GameListcomponent implements OnInit{
             .subscribe(
                 (arena:ArenaUsers[])=> {
                     this.arenas=arena;
-                    console.log(arena)
                 });
    }
     constructor(private mainAppService:MainAppService){}
