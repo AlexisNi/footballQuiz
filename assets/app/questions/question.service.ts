@@ -4,37 +4,40 @@ import 'rxjs/Rx';
 import {Observable} from "rxjs";
 import 'rxjs/add/operator/map';
 import {Question} from "./question";
-import {QuestionANS} from "./questionANS";
+import {ArenaQuestion} from "./arena_question";
 
 @Injectable()
 export  class QuestionService{
-    private questions:Question[]=[];
+    private arenaQuestions:Question[]=[];
     constructor(private http:Http){}
 
+    getArenaQuestions(){
+        return this.http.get('http://localhost:3000/question/arenaQuestions').
+            map((response:Response)=>{
+            const questions=response.json().obj;
+            let transformedQuestions:Question[]=[];
+            for (let question of questions){
+                transformedQuestions.push(new Question(
+                    question.question,
+                    question.optiona,
+                    question.optionb,
+                    question.optionc,
+                    question.optiond,
+                    question.answer,
+                    question._id
+                ));
+            }
+            this.arenaQuestions=transformedQuestions;
+            return transformedQuestions;
 
-    getQuestions() {
-        return this.http.get('http://localhost:3000/question')
-            .map((response: Response) => {
-                const questions = response.json().obj;
-                let transformedMessages: Question[] = [];
-                for (let question of questions) {
-                    transformedMessages.push(new Question(
-                        question.question,
-                        question.optionA,
-                        question.optionB,
-                        question.optionC,
-                        question.optionD,
-                        question.answer,
-                        question._id
-                    ));
-                }
-                this.questions = transformedMessages;
-                return transformedMessages;
-            })
+        })
             .catch((error: Response) =>Observable.throw(error.json()));
+
+
+
     }
 
-    saveAnswerdQuestion(answer:QuestionANS){
+    saveAnswerdQuestion(answer:ArenaQuestion){
         const body = JSON.stringify(answer);
         const headers = new Headers({'Content-Type': 'application/json'});
         return this.http.post('http://localhost:3000/questionANS', body, {headers: headers})
@@ -43,14 +46,14 @@ export  class QuestionService{
     }
 
 
-
+/*
     getAnsweredQuestions(){
         return this.http.get('http://localhost:3000/questionANS')
             .map((response: Response) => {
                 const questions = response.json().obj;
-                let transformedMessages: QuestionANS[] = [];
+                let transformedMessages: ArenaQuestion[] = [];
                 for (let question of questions) {
-                    transformedMessages.push(new QuestionANS(
+                    transformedMessages.push(new ArenaQuestion(
                         question.questionId,
                         question.answer,
                     ));
@@ -59,6 +62,6 @@ export  class QuestionService{
             })
             .catch((error: Response) =>Observable.throw(error.json()));
 
-    }
+    }*/
 
 }

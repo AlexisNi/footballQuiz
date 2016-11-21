@@ -5,8 +5,11 @@ var QuestionsANS=require('../models/questionsANS');
 
 
 router.post('/', function (req, res, next) {
-    console.log('Post received! On QuestionANS');
+    console.log('Post received! On ArenaQuestion');
+    console.log(req.body);
     var QuestionAns = new QuestionsANS({
+        arenaId:req.body.arenaId,
+        userId:req.body.userId,
         questionId:req.body.questionId,
         answer:req.body.answer
 

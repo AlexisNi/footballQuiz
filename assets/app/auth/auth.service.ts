@@ -37,6 +37,12 @@ export  class AuthService{
             .catch((error: Response) =>Observable.throw(error.json()));
 
     }
+    getUserId(){
+        const user=localStorage.getItem('userId');
+        return user;
+
+
+    }
 
 
     logout(){

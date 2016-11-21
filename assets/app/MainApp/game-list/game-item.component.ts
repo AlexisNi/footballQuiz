@@ -9,10 +9,10 @@ import {ArenaUsers} from "../arenaUsers";
 @Component({
     selector:'game-item',
     template: `
-<a [routerLink]="1" class="list-group-item clearfix" routerLinkActive="active"> 
+<a [routerLink]="arena.arenaId" class="list-group-item clearfix" routerLinkActive="active"> 
     <article class="panel panel-default" [ngStyle]="{backgroundColor: color}">
     <div class="panel-body">
-        {{arena?.lastName}}
+        {{arena?.lastName}} 
     </div>
     <footer class="panel-footer">
         <div class="author">
