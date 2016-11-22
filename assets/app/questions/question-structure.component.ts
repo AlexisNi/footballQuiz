@@ -5,6 +5,7 @@ import {ArenaQuestion} from "./arena_question";
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Data} from "@angular/router";
 import {AuthService} from "../auth/auth.service";
+import {AnsweredQuestion} from "./answered-questions";
 
 @Component({
     selector: 'my-questionScore',
@@ -58,8 +59,9 @@ export class QuestionStructure implements OnInit{
     onChooseQuestion(activeQuestion:Question,answerChoice:Object){
         if(activeQuestion.answer===answerChoice){
             console.log('Right Answer!!!!');
-
-            var  questionAns=new ArenaQuestion(this.arenaId,this.userId,activeQuestion.questionId,true);
+            var questionAnswer=new AnsweredQuestion(activeQuestion.questionId,true);
+            console.log(questionAnswer);
+            var  questionAns=new ArenaQuestion(this.arenaId,this.userId,questionAnswer);
             this.questionService.saveAnswerdQuestion(questionAns)
                 .subscribe(
                     data => console.log(data),
@@ -70,8 +72,8 @@ export class QuestionStructure implements OnInit{
 
 
         }else {
-
-            var  questionAns=new ArenaQuestion(this.arenaId,this.userId,activeQuestion.questionId,false);
+            var questionAnswer=new AnsweredQuestion(activeQuestion.questionId,true);
+            var  questionAns=new ArenaQuestion(this.arenaId,this.userId,questionAnswer);
             this.questionService.saveAnswerdQuestion(questionAns)
                 .subscribe(
                     data => console.log(data),

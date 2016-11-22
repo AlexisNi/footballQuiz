@@ -5,12 +5,14 @@ import {AnsweredQuestion} from "./answered-questions";
 export  class ArenaQuestion{
     arenaId:string;
     userId:string;
+    question:AnsweredQuestion;
 
 
 
-    constructor(arenaId:string,userId:string,question:AnsweredQuestion[]){
+    constructor(arenaId:string,userId:string,question:AnsweredQuestion){
         this.arenaId=arenaId;
         this.userId=userId;
+        this.question=question;
 
     }
 
