@@ -7,7 +7,7 @@ export  class AnsweredQuestion{
 
 
 
-    constructor(questionId:string,answer:Boolean){
+    constructor(questionId:string,answer:Boolean,){
 
         this.questionId=questionId;
         this.answer=answer;

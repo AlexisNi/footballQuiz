@@ -16,7 +16,7 @@ export class QuestionStructure implements OnInit{
     userName:string;
     userId: string;
     answerQuestion:ArenaQuestion[]=[];
-    private arenaId:string;
+    private  arenaId:string;
     private  subscription:Subscription;
     private arenaQuestions:Question[]=[];
 
@@ -34,7 +34,7 @@ export class QuestionStructure implements OnInit{
     }
 
     getArenaQuestions(){
-        return  this.questionService.getArenaQuestions()
+        return  this.questionService.getArenaQuestions(this.arenaId)
             .subscribe(
                 (arenaQuestions:Question[])=>{
                    this.arenaQuestions=arenaQuestions;

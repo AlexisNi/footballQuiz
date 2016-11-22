@@ -5,14 +5,15 @@ import {Observable} from "rxjs";
 import 'rxjs/add/operator/map';
 import {Question} from "./question";
 import {ArenaQuestion} from "./arena_question";
+import {QuestionStructure} from "./question-structure.component";
 
 @Injectable()
 export  class QuestionService{
     private arenaQuestions:Question[]=[];
     constructor(private http:Http){}
 
-    getArenaQuestions(){
-        return this.http.get('http://localhost:3000/question/arenaQuestions').
+    getArenaQuestions(id:String){
+        return this.http.get('http://localhost:3000/question/arenaQuestions'+'?id='+id).
             map((response:Response)=>{
             const questions=response.json().obj;
             let transformedQuestions:Question[]=[];

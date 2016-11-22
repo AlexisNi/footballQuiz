@@ -27,33 +27,36 @@ router.post('/', function (req, res, next) {
 
             });
 
-        }
+        }else {
+            var arenaQuestion = new ArenaQuestions({
+                arenaId:req.body.arenaId,
+                userId:req.body.userId,
+                questionAnswer:req.body.question
 
-
-
-    });
-
-
-
-    var arenaQuestion = new ArenaQuestions({
-        arenaId:req.body.arenaId,
-        userId:req.body.userId,
-        questionAnswer:req.body.question
-
-    });
-
-    arenaQuestion.save(function(err, result) {
-        if (err) {
-            return res.status(500).json({
-                title: 'An error occurred',
-                error: err
             });
+
+            arenaQuestion.save(function(err, result) {
+                if (err) {
+                    return res.status(500).json({
+                        title: 'An error occurred',
+                        error: err
+                    });
+                }
+                res.status(201).json({
+                    message: 'QuestionSaved created',
+                    obj: result
+                });
+            });
+
         }
-        res.status(201).json({
-            message: 'QuestionSaved created',
-            obj: result
-        });
+
+
+
     });
+
+
+
+
 });
 
 
