@@ -9,7 +9,8 @@ var schema = new Schema({
     optionB: {type: String},
     optionC: {type: String},
     optionD: {type: String},
-    answer: {type: String}
+    answer: {type: String},
+    isPlayed:{type:Boolean,default:false}
 });
 
 

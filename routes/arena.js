@@ -50,12 +50,17 @@ router.post('/', function (req, res, next) {
                     });
                 }
 
+                ArenaUser.schema.eachPath(function (path) {
+                    console.log(path);
+                });
+
         var arenaUser = new ArenaUser({
             user:user,
             invite:userInvite,
             status_accept:false,
             questions:questions
         });
+
 
 
         arenaUser.save(function(err, result) {
@@ -65,7 +70,6 @@ router.post('/', function (req, res, next) {
                     error: err
                 });
             }
-
             user.arenas.push(result);
             user.save();
             userInvite.arenas.push(result);
@@ -118,6 +122,40 @@ router.get('/arenas',function (req,res,next) {
                     });
             });
         });
+
+router.post('/playedStatus',function (req,res,next) {
+    console.log('Post Received');
+    console.log(req.body);
+    var userId=req.body.userId;
+    var arenaId=req.body.arenaId;
+    ArenaUser.findOne({_id:arenaId})
+        .populate('user')
+        .populate('invite')
+        .exec(function (err,arenas) {
+            if (arenas.user._id==userId){
+                console.log(arenas.user_played)
+                ArenaUser.update({_id:arenaId},{$set:{user_played:true}},function (err,result) {
+                    if (err) {
+                        return res.status(500).json({
+                            title: 'An error occurred',
+                            error: err
+                        });
+                    }
+                });
+            }else {
+                ArenaUser.update({_id:arenaId},{$set:{user_played:true}},function (err,result) {
+                    if (err) {
+                        return res.status(500).json({
+                            title: 'An error occurred',
+                            error: err
+                        });
+                    }
+                });
+            }
+        });
+
+
+});
 
 
 

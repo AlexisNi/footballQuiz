@@ -5,7 +5,8 @@ import {Observable} from "rxjs";
 import 'rxjs/add/operator/map';
 import {Question} from "./question";
 import {ArenaQuestion} from "./arena_question";
-import {QuestionStructure} from "./question-structure.component";
+import {QuestionPlayed} from "./questionModels/questionPlayed";
+import {StatusPlayed} from "./questionModels/statusPlayedArena";
 
 @Injectable()
 export  class QuestionService{
@@ -44,6 +45,24 @@ export  class QuestionService{
         return this.http.post('http://localhost:3000/questionANS', body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) =>Observable.throw(error.json()));
+    }
+
+      questionPlayed(questionPlayed:QuestionPlayed){
+        const body = JSON.stringify(questionPlayed);
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this.http.post('http://localhost:3000/question/questionPlayed', body, {headers: headers})
+            .map((response: Response) => response.json())
+            .catch((error: Response) =>Observable.throw(error.json()));
+    }
+
+
+    statusPlayed(arenaInfo:StatusPlayed){
+        const body = JSON.stringify(arenaInfo);
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this.http.post('http://localhost:3000/arena/playedStatus', body, {headers: headers})
+            .map((response: Response) => response.json())
+            .catch((error: Response) =>Observable.throw(error.json()));
+
     }
 
 

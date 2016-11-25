@@ -27,6 +27,40 @@ router.get('/arenaQuestions',function (req,res,next) {
         });
 });
 
+router.post('/questionPlayed',function (req,res,next) {
+    console.log(req.body);
+    var arenaId=req.body.arenaId;
+    var questionId=req.body.questionId;
+    ArenaUser.findOne()
+        .where({ $and:[ {_id:arenaId}, {questions:questionId}]})
+        .populate({path:'questions',match:{_id:questionId}})
+        .exec(function (err,arena) {
+            if(err){
+                return res.status(500).json({
+                    title:'An error occured',
+                    error:err
+                });
+            }
+
+            console.log(arena);
+
+
+            /*for(var key in arena.questions){
+                if (arena.questions[key]._id==questionId){
+                    console.log(arena.questions[key].answer);
+                }
+
+
+            }*/
+
+
+
+        });
+
+
+
+});
+
 
 
 router.get('/',function (req,res,next) {

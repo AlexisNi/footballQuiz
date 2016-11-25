@@ -6,7 +6,10 @@ var schema = new Schema({
     user:{type: Schema.Types.ObjectId, ref: 'User'},
     invite:{type: Schema.Types.ObjectId, ref: 'User'},
     status_accept: {type: Boolean},
-    questions: [{type: Schema.Types.ObjectId, ref: 'Question'}]
+    questions: [{type: Schema.Types.ObjectId, ref: 'Question'}],
+    user_played:{type:Boolean,default:false},
+    invite_played:{type:Boolean,default:false}
+
 });
 
 

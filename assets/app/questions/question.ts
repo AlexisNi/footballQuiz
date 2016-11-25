@@ -9,9 +9,10 @@ export  class Question{
     optionC :string;
     optionD:string;
     answer:string;
+    isplayed:boolean;
 
 
-    constructor(question:string,optionA:string,optionB:string,optionC:string,optionD:string,answer:string,questionId:string,){
+    constructor(question:string,optionA:string,optionB:string,optionC:string,optionD:string,answer:string,questionId:string,isplayed?:boolean){
         this.questionId=questionId;
         this.question=question;
         this.optionA=optionA;;
@@ -19,6 +20,7 @@ export  class Question{
         this.optionC=optionC;
         this.optionD=optionD;
         this.answer=answer;
+        this.isplayed=isplayed;
 
     }
 
