@@ -5,6 +5,8 @@ import {Observable} from "rxjs";
 import {User} from "../auth/user";
 import {ArenaUsers} from "./arenaUsers";
 import {ArenaPlayers} from "./arenaPlayers";
+import {Subject} from 'rxjs/Subject';
+import * as io from  "socket.io-client";
 
 
 
@@ -13,6 +15,15 @@ export class MainAppService{
     private arenas:ArenaUsers[]=[];
     constructor(private http:Http){}
 
+    private  socket:any;
+
+
+    sendUserId(userId:string)
+    {
+        this.socket=io('http://localhost:4000'/*,{query:"UserName: Alex"}*/);
+        this.socket.emit('get-userId',userId);
+
+    }
 
 
 
@@ -32,7 +43,7 @@ export class MainAppService{
         return this.http.post('http://localhost:3000/arena'+token, body, {headers: headers})
             .map((response: Response) => {
                 const arenaUsers = new ArenaUsers(response.json().obj._id, response.json().obj.user,
-                    response.json().obj.invite,response.json().obj.status_accept,response.json().obj.invite.lastName,response.json().obj.questions);
+                    response.json().obj.invite,response.json().obj.status_accept,response.json().obj.invite.lastName/*,response.json().obj.questions*/);
                 this.arenas.push(arenaUsers);
                 return arenaUsers;
             })
@@ -52,6 +63,8 @@ export class MainAppService{
                         arena.invite._id,
                         arena.status_accept,
                         arena.user.lastName || arena.invite.lastName,
+                        arena.user_played,
+                        arena.invite_played
                     ));
                 }
                 const UserArenas=response.json().objUser;
@@ -61,7 +74,10 @@ export class MainAppService{
                         userArena.user._id ,
                         userArena.invite,
                         userArena.status_accept,
-                        userArena.user.lastName
+                        userArena.user.lastName,
+                        userArena.user_played,
+                        userArena.invite_played
+
                     ));
                 }
                     this.arenas=transformedArenas;

@@ -21,6 +21,7 @@ import {GameListcomponent} from "./MainApp/game-list/game-list.component";
 import {GameItemComponent} from "./MainApp/game-list/game-item.component";
 import {ArenaComponent} from "./MainApp/arena/arena.component";
 import {Ng2Bs3ModalModule} from "ng2-bs3-modal/ng2-bs3-modal";
+import {SocketService} from "./MainApp/socketHanding/socket.service";
 
 @NgModule({
     declarations: [
@@ -40,7 +41,7 @@ import {Ng2Bs3ModalModule} from "ng2-bs3-modal/ng2-bs3-modal";
 
     ],
     imports: [BrowserModule,FormsModule,routing,ReactiveFormsModule,HttpModule,MaterialRootModule,Ng2Bs3ModalModule],
-    providers:[AuthService,QuestionService,MainAppService],
+    providers:[AuthService,QuestionService,MainAppService,SocketService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,14 +1,15 @@
 import {Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, AfterViewInit} from '@angular/core';
-import {Question} from "./question";
+import {Question} from "./questionModels/question";
 import {QuestionService} from "./question.service";
-import {ArenaQuestion} from "./arena_question";
+import {ArenaQuestion} from "./questionModels/arena_question";
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Data} from "@angular/router";
 import {AuthService} from "../auth/auth.service";
-import {AnsweredQuestion} from "./answered-questions";
+import {AnsweredQuestion} from "./questionModels/answered-questions";
 import {QuestionPlayed} from "./questionModels/questionPlayed";
 import {ModalComponent} from "ng2-bs3-modal/components/modal";
 import {StatusPlayed} from "./questionModels/statusPlayedArena";
+import {SocketService} from "../MainApp/socketHanding/socket.service";
 
 @Component({
     selector: 'my-questionScore',
@@ -32,13 +33,14 @@ export class QuestionStructure implements OnInit{
 
 
 
-    constructor(private questionService:QuestionService,private route:ActivatedRoute,private userService:AuthService){}
+    constructor(private questionService:QuestionService,private route:ActivatedRoute,private userService:AuthService,private socketService:SocketService){}
 
     ngOnInit(): any {
         console.log('onInit');
         this.getArenaId();
         this.getUser();
         this.getUserId();
+        this.socketService.enterArena(this.arenaId,this.userId);
         this.statusPlayed();
         this.getArenaQuestions();
 /*
@@ -56,15 +58,15 @@ export class QuestionStructure implements OnInit{
 
 
     }
-
-/*    getQuestionsANS(){
-        return  this.questionService.getAnsweredQuestions()
+    getCorrectQuestions(){
+        const playedArena=new StatusPlayed(this.arenaId,this.userId);
+        return this.questionService.getCorrectQuestions(playedArena)
             .subscribe(
-                (questions:ArenaQuestion[])=>{
-                    this.answerQuestion=questions;
-                    console.log(questions.length)
+                (data:Data)=>{
+                    console.log(data)
                 });
-    }*/
+    }
+
 
     nextQuestion(){
         this.index++;
@@ -93,7 +95,7 @@ export class QuestionStructure implements OnInit{
 
 
         }else {
-            var questionAnswer=new AnsweredQuestion(activeQuestion.questionId,true);
+            var questionAnswer=new AnsweredQuestion(activeQuestion.questionId,false);
             var  questionAns=new ArenaQuestion(this.arenaId,this.userId,questionAnswer);
             this.questionService.saveAnswerdQuestion(questionAns)
                 .subscribe(
@@ -105,7 +107,7 @@ export class QuestionStructure implements OnInit{
                 .subscribe(
                     data=>console.log(data),
                     error=>console.log(error));
-
+            this.getCorrectQuestions();
             this.isLost=true;
             this.open();
         }

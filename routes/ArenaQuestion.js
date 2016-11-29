@@ -59,6 +59,27 @@ router.post('/', function (req, res, next) {
 
 });
 
+router.get('/correct',function (req,res,next) {
+    console.log('Correct question works');
+    console.log(req.query);
+    ArenaQuestions.findOne().where({ $and:[ {arenaId:req.query.arenaId}, {userId:req.query.userId}]})
+        .exec(function (err,questionsCorrect) {
+
+
+        console.log(questionsCorrect);
+
+           /* for(var i in questionsCorrect){
+                console.log(questionsCorrect[i]
+                    .questionAnswer[i].questionId);
+
+            }*/
+
+
+
+        });
+
+});
+
 
 router.get('/',function (req,res,next) {
     console.log('Get done');

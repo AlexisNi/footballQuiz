@@ -3,13 +3,15 @@ import {Injectable, EventEmitter} from "@angular/core";
 import 'rxjs/Rx';
 import {Observable} from "rxjs";
 import 'rxjs/add/operator/map';
-import {Question} from "./question";
-import {ArenaQuestion} from "./arena_question";
+import {Question} from "./questionModels/question";
+import {ArenaQuestion} from "./questionModels/arena_question";
 import {QuestionPlayed} from "./questionModels/questionPlayed";
 import {StatusPlayed} from "./questionModels/statusPlayedArena";
+import {AnsweredQuestion} from "./questionModels/answered-questions";
 
 @Injectable()
 export  class QuestionService{
+    private arenaQuestionAnswer:AnsweredQuestion[]=[];
     private arenaQuestions:Question[]=[];
     constructor(private http:Http){}
 
@@ -65,23 +67,28 @@ export  class QuestionService{
 
     }
 
-
-/*
-    getAnsweredQuestions(){
-        return this.http.get('http://localhost:3000/questionANS')
-            .map((response: Response) => {
-                const questions = response.json().obj;
-                let transformedMessages: ArenaQuestion[] = [];
-                for (let question of questions) {
-                    transformedMessages.push(new ArenaQuestion(
-                        question.questionId,
-                        question.answer,
+    getCorrectQuestions(playerArena:StatusPlayed){
+        var userId=playerArena.userId;
+        var arenaId=playerArena.arenaId;
+        return this.http.get('http://localhost:3000/questionANS/correct'+'?userId='+userId+'&'+'arenaId='+arenaId)
+            . map((response:Response)=>{
+                const questionsAnswered=response.json().obj;
+                let transformedQuestionsAnswered:AnsweredQuestion[]=[];
+                for (let answeredQuestion of questionsAnswered){
+                    transformedQuestionsAnswered.push(new AnsweredQuestion(
+                       answeredQuestion._id,
+                       answeredQuestion.answer
                     ));
                 }
-                return transformedMessages;
-            })
-            .catch((error: Response) =>Observable.throw(error.json()));
+                this.arenaQuestionAnswer=transformedQuestionsAnswered;
+                return transformedQuestionsAnswered;
 
-    }*/
+            });
+
+
+    }
+
+
+
 
 }

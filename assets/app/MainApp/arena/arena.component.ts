@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../auth/auth.service";
+import {SocketService} from "../socketHanding/socket.service";
 
 
 @Component({
@@ -15,9 +16,10 @@ import {AuthService} from "../../auth/auth.service";
 </div>`
 })
 export class ArenaComponent implements  OnInit{
-    constructor(private userService:AuthService){}
+    constructor(private userService:AuthService,private socketServices:SocketService){}
     private userName;
     ngOnInit(): void {
+        this.socketServices.arenaLeave();
         this.userService.getUser()
             .subscribe(
                 (user:string)=> {
