@@ -143,7 +143,7 @@ router.post('/playedStatus',function (req,res,next) {
                     }
                 });
             }else {
-                ArenaUser.update({_id:arenaId},{$set:{user_played:true}},function (err,result) {
+                ArenaUser.update({_id:arenaId},{$set:{invite_played:true}},function (err,result) {
                     if (err) {
                         return res.status(500).json({
                             title: 'An error occurred',

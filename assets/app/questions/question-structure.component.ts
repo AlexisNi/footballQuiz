@@ -97,11 +97,11 @@ export class QuestionStructure implements OnInit{
         }else {
             var questionAnswer=new AnsweredQuestion(activeQuestion.questionId,false);
             var  questionAns=new ArenaQuestion(this.arenaId,this.userId,questionAnswer);
-            this.questionService.saveAnswerdQuestion(questionAns)
+           /* this.questionService.saveAnswerdQuestion(questionAns)
                 .subscribe(
                     data => console.log(data),
                     error => console.error(error)
-                );
+                );*/
             var questionPlayed=new  QuestionPlayed(this.arenaId,activeQuestion.questionId);
             this.questionService.questionPlayed(questionPlayed)
                 .subscribe(

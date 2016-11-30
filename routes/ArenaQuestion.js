@@ -101,7 +101,11 @@ router.get('/',function (req,res,next) {
 
 });
 
-
+router.post('/getResults',function (req,res,next) {
+    console.log('Get Results works')
+    console.log(req.body.arenaId);
+    console.log(req.body.userId);
+});
 
 
 module.exports=router;

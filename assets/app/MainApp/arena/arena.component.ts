@@ -26,5 +26,10 @@ export class ArenaComponent implements  OnInit{
                     this.userName=user;
                     console.log(user)
                 });
+
+
+
     }
+
+
 }

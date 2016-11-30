@@ -7,6 +7,7 @@ import {ArenaUsers} from "./arenaUsers";
 import {ArenaPlayers} from "./arenaPlayers";
 import {Subject} from 'rxjs/Subject';
 import * as io from  "socket.io-client";
+import {ArenaUserId} from "./arenaUserId";
 
 
 
@@ -42,8 +43,13 @@ export class MainAppService{
         const headers = new Headers({'Content-Type': 'application/json'});
         return this.http.post('http://localhost:3000/arena'+token, body, {headers: headers})
             .map((response: Response) => {
-                const arenaUsers = new ArenaUsers(response.json().obj._id, response.json().obj.user,
-                    response.json().obj.invite,response.json().obj.status_accept,response.json().obj.invite.lastName/*,response.json().obj.questions*/);
+                const arenaUsers = new ArenaUsers(response.json().obj._id,
+                    response.json().obj.user._id,
+                    response.json().obj.invite._id,
+                    response.json().obj.status_accept,
+                    response.json().obj.invite.lastName,
+                    response.json().obj.user_played,
+                    response.json().obj.invite_played);
                 this.arenas.push(arenaUsers);
                 return arenaUsers;
             })
@@ -86,6 +92,16 @@ export class MainAppService{
             .catch((error: Response) =>Observable.throw(error.json()));
 
     }
+
+    getResult(arenaUserInfo:ArenaUserId){
+        const body = JSON.stringify(arenaUserInfo);
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this.http.post('http://localhost:3000/questionANS/getResults', body, {headers: headers})
+            .map((response: Response) => response.json())
+            .catch((error: Response) =>Observable.throw(error.json()));
+    }
+
+
 
 
 
