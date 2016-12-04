@@ -91,6 +91,7 @@ router.post('/', function (req, res, next) {
 
 
 
+/*
 
 router.get('/arenas',function (req,res,next) {
     var decoded=jwt.decode(req.query.token);
@@ -122,6 +123,68 @@ router.get('/arenas',function (req,res,next) {
                     });
             });
         });
+*/
+
+router.get('/arenas',function (req,res,next) {
+    var decoded=jwt.decode(req.query.token);
+    var arenasArray=[];
+
+        User.findOne({_id:decoded.user._id})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE USER ROW AND SHOW THE LAST NAME OF INVITE
+            .populate('arenas','_id')
+            .exec(function (err, arenasArr) {
+                if (err) {
+                    return res.status(500).json({
+                        title: 'An error occured',
+                        error: err
+                    });
+                }
+
+                        for(var i=0; i<arenasArr.arenas.length;i++){
+                            arenasArray.push(arenasArr.arenas[i]._id);
+                        }
+                        console.log(arenasArray);
+
+                    ArenaUser.find   ({ $and:[ {user: decoded.user._id},{_id:{$in:arenasArray}}]})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE INVITE ROW AND SHOWS THE LAST NAME OF THE USER
+                        .populate('invite', 'lastName')
+                        .exec(function (err, arenas) {
+                            if (err) {
+                                return res.status(500).json({
+                                    title: 'An error occured',
+                                    error: err
+                                });
+
+
+
+                            }
+
+                            ArenaUser.find   ({ $and:[ {invite: decoded.user._id},{_id:{$in:arenasArray}}]})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE INVITE ROW AND SHOWS THE LAST NAME OF THE USER
+                                .populate('user', 'lastName')
+                                .exec(function (err, arenasUser) {
+                                    if (err) {
+                                        return res.status(500).json({
+                                            title: 'An error occured',
+                                            error: err
+                                        });
+
+
+
+                                    }
+
+
+
+
+                        res.status(200).json({
+                            message: 'success',
+                            obj: arenas,
+                            objUser: arenasUser
+                        });
+
+            });
+            });
+            });
+            });
+
+
 
 router.post('/playedStatus',function (req,res,next) {
     console.log('Post Received');
