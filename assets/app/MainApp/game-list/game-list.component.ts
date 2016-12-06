@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {MainAppService} from "../mainApp.services";
-import {ArenaUsers} from "../arenaUsers";
+import {ArenaUsers} from "../models/arenaUsers";
+import {GameListServices} from "./game-list.services";
 
 
 
@@ -19,7 +20,7 @@ export  class GameListcomponent implements OnInit{
 
     ngOnInit(): any {
         console.log('on init');
-        this.mainAppService.getArenas()
+        this.gameListService.getArenas()
             .subscribe(
                 (arena:ArenaUsers[])=> {
                     this.arenas=arena;
@@ -27,6 +28,6 @@ export  class GameListcomponent implements OnInit{
                     console.log(arena);
                 });
    }
-    constructor(private mainAppService:MainAppService){}
+    constructor(private gameListService:GameListServices){}
     arenas:ArenaUsers[];
 }

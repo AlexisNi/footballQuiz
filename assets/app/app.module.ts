@@ -16,12 +16,16 @@ import {QuestionStructure} from "./questions/question-structure.component";
 import {QuestionService} from "./questions/question.service";
 import {MaterialRootModule} from "@angular/material";
 import {OpponentComponentFind} from "./MainApp/opponent-find/opponent-find.component";
-import {MainAppService} from "./MainApp/mainApp.services";
 import {GameListcomponent} from "./MainApp/game-list/game-list.component";
 import {GameItemComponent} from "./MainApp/game-list/game-item.component";
 import {ArenaComponent} from "./MainApp/arena/arena.component";
 import {Ng2Bs3ModalModule} from "ng2-bs3-modal/ng2-bs3-modal";
 import {SocketService} from "./MainApp/socketHanding/socket.service";
+import {GameListServices} from "./MainApp/game-list/game-list.services";
+import { OpponentFindService} from "./MainApp/opponent-find/opponent-find.sevices";
+import {ArenaServices} from "./questions/questionServices/arena.service";
+import {QuestionServices} from "./questions/questionServices/question.service";
+import {QuestionAnswerServices} from "./questions/questionServices/questionAnswer.service";
 
 @NgModule({
     declarations: [
@@ -41,7 +45,7 @@ import {SocketService} from "./MainApp/socketHanding/socket.service";
 
     ],
     imports: [BrowserModule,FormsModule,routing,ReactiveFormsModule,HttpModule,MaterialRootModule,Ng2Bs3ModalModule],
-    providers:[AuthService,QuestionService,MainAppService,SocketService],
+    providers:[AuthService,QuestionService,SocketService,GameListServices,OpponentFindService,ArenaServices,QuestionServices,QuestionAnswerServices],
     bootstrap: [AppComponent]
 })
 export class AppModule {

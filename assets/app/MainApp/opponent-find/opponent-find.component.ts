@@ -2,8 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl,  Validators} from "@angular/forms";
 import {MainAppService} from "../mainApp.services";
 import {User} from "../../auth/user";
-import {ArenaUsers} from "../arenaUsers";
-import {ArenaPlayers} from "../arenaPlayers";
+import {ArenaUsers} from "../models/arenaUsers";
+import {ArenaPlayers} from "../models/arenaPlayers";
+import {OpponentFindService} from "./opponent-find.sevices";
 
 
 @Component({
@@ -19,7 +20,7 @@ export class OpponentComponentFind implements OnInit{
     inviteId;
     searched=false;
 
-    constructor(private mainappservices:MainAppService){}
+    constructor(private opponentFindService:OpponentFindService){}
 
     ngOnInit(): void {
         this.myForm=new FormGroup({
@@ -31,7 +32,7 @@ export class OpponentComponentFind implements OnInit{
     onSubmit(){
         this.searched=true;
         const userName = new User(this.myForm.value.userName,this.myForm.value.userName,this.myForm.value.userName,this.myForm.value.userName);
-        this.mainappservices.findUser(userName)
+        this.opponentFindService.findUser(userName)
             .subscribe(
                 data=>{
                     console.log(data);
@@ -48,7 +49,7 @@ export class OpponentComponentFind implements OnInit{
     playWith(inviteId:string){
        var userId= localStorage.getItem('userId');
         var arenaPlayer=new ArenaPlayers(userId,inviteId);
-        this.mainappservices.createArena(arenaPlayer)
+        this.opponentFindService.createArena(arenaPlayer)
             .subscribe(
                 data => console.log(data),
                 error => console.error(error)

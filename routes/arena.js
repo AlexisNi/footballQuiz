@@ -38,11 +38,10 @@ router.post('/', function (req, res, next) {
                     error: err
                 });
             }
-           /* Questions.syncRandom(function (err, result) {
+            Questions.syncRandom(function (err, result) {
                 console.log(result.updated);
-            });*/
-
-            Questions.findRandom().limit(2).exec(function (err, questions) {
+            });
+            Questions.findRandom().limit(10).exec(function (err, questions) {
                 if (err) {
                     return res.status(500).json({
                         title: 'An error occured',

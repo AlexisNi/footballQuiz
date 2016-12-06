@@ -3,11 +3,12 @@
  */
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MainAppService} from "../mainApp.services";
-import {ArenaUsers} from "../arenaUsers";
+import {ArenaUsers} from "../models/arenaUsers";
 import {AuthService} from "../../auth/auth.service";
 import {ModalComponent} from "ng2-bs3-modal/components/modal";
 import {Data} from "@angular/router";
-import {ArenaUserId} from "../arenaUserId";
+import {ArenaUserId} from "../models/arenaUserId";
+import {GameListServices} from "./game-list.services";
 
 
 @Component({
@@ -101,14 +102,14 @@ export class GameItemComponent implements OnInit{
     private userId;
     private result;
 
-    constructor(private userIdService:AuthService,private mainAppService:MainAppService){}
+    constructor(private userIdService:AuthService,private gameListService:GameListServices){}
 
 
     showResult(arenaId)
     {
 
         var arenaUserId=new ArenaUserId(this.userId,arenaId)
-        this.mainAppService.getResult(arenaUserId)
+        this.gameListService.getResult(arenaUserId)
             .subscribe(
                 (data:Data)=> {
 

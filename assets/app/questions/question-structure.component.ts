@@ -10,6 +10,9 @@ import {QuestionPlayed} from "./questionModels/questionPlayed";
 import {ModalComponent} from "ng2-bs3-modal/components/modal";
 import {StatusPlayed} from "./questionModels/statusPlayedArena";
 import {SocketService} from "../MainApp/socketHanding/socket.service";
+import {ArenaServices} from "./questionServices/arena.service";
+import {QuestionServices} from "./questionServices/question.service";
+import {QuestionAnswerServices} from "./questionServices/questionAnswer.service";
 
 @Component({
     selector: 'my-questionScore',
@@ -33,7 +36,9 @@ export class QuestionStructure implements OnInit{
 
 
 
-    constructor(private questionService:QuestionService,private route:ActivatedRoute,private userService:AuthService,private socketService:SocketService){}
+    constructor(private route:ActivatedRoute
+        ,private userService:AuthService
+        ,private socketService:SocketService,private  arenaService:ArenaServices,private questionServices:QuestionServices,private questionAnswerService:QuestionAnswerServices){}
 
     ngOnInit(): any {
         console.log('onInit');
@@ -50,7 +55,7 @@ export class QuestionStructure implements OnInit{
 
 
     getArenaQuestions(){
-        return  this.questionService.getArenaQuestions(this.arenaId)
+        return  this.questionServices.getArenaQuestions(this.arenaId)
             .subscribe(
                 (arenaQuestions:Question[])=>{
                    this.arenaQuestions=arenaQuestions;
@@ -60,7 +65,7 @@ export class QuestionStructure implements OnInit{
     }
     getCorrectQuestions(){
         const playedArena=new StatusPlayed(this.arenaId,this.userId);
-        return this.questionService.getCorrectQuestions(playedArena)
+        return this.questionAnswerService.getCorrectQuestions(playedArena)
             .subscribe(
                 (data:Data)=>{
                     console.log(data)
@@ -77,13 +82,13 @@ export class QuestionStructure implements OnInit{
             var questionAnswer=new AnsweredQuestion(activeQuestion.questionId,true);
             console.log(questionAnswer);
             var  questionAns=new ArenaQuestion(this.arenaId,this.userId,questionAnswer);
-            this.questionService.saveAnswerdQuestion(questionAns)
+            this.questionAnswerService.saveAnswerdQuestion(questionAns)
                 .subscribe(
                     data => console.log(data),
                     error => console.error(error)
                 );
             var questionPlayed=new  QuestionPlayed(this.arenaId,activeQuestion.questionId);
-            this.questionService.questionPlayed(questionPlayed)
+            this.questionServices.questionPlayed(questionPlayed)
                 .subscribe(
                     data=>console.log(data),
                     error=>console.log(error));
@@ -103,7 +108,7 @@ export class QuestionStructure implements OnInit{
                     error => console.error(error)
                 );*/
             var questionPlayed=new  QuestionPlayed(this.arenaId,activeQuestion.questionId);
-            this.questionService.questionPlayed(questionPlayed)
+            this.questionServices.questionPlayed(questionPlayed)
                 .subscribe(
                     data=>console.log(data),
                     error=>console.log(error));
@@ -142,7 +147,7 @@ export class QuestionStructure implements OnInit{
     statusPlayed(){
     var arenaInfo=new StatusPlayed(this.arenaId,this.userId);
 
-        this.questionService.statusPlayed(arenaInfo)
+        this.arenaService.statusPlayed(arenaInfo)
             .subscribe(
                 data=>console.log(data),
                 error=>console.log(error));
