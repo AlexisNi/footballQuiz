@@ -195,7 +195,7 @@ router.post('/playedStatus',function (req,res,next) {
         .populate('invite')
         .exec(function (err,arenas) {
             if (arenas.user._id==userId){
-                console.log(arenas.user_played)
+                console.log(arenas.user_played);
                 ArenaUser.update({_id:arenaId},{$set:{user_played:true}},function (err,result) {
                     if (err) {
                         return res.status(500).json({
@@ -203,6 +203,8 @@ router.post('/playedStatus',function (req,res,next) {
                             error: err
                         });
                     }
+                    res.sendStatus(200);
+
                 });
             }else {
                 ArenaUser.update({_id:arenaId},{$set:{invite_played:true}},function (err,result) {
@@ -212,8 +214,13 @@ router.post('/playedStatus',function (req,res,next) {
                             error: err
                         });
                     }
+                    res.sendStatus(200);
+
                 });
             }
+
+
+
         });
 
 

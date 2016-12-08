@@ -3,7 +3,7 @@ import {Question} from "./questionModels/question";
 import {QuestionService} from "./question.service";
 import {ArenaQuestion} from "./questionModels/arena_question";
 import {Subscription} from "rxjs";
-import {ActivatedRoute, Data} from "@angular/router";
+import {ActivatedRoute, Data, Router} from "@angular/router";
 import {AuthService} from "../auth/auth.service";
 import {AnsweredQuestion} from "./questionModels/answered-questions";
 import {QuestionPlayed} from "./questionModels/questionPlayed";
@@ -33,12 +33,22 @@ export class QuestionStructure implements OnInit{
     open() {
         this.modal.open();
     }
+    close(){
+        this.isLost=false;
+        this.modal.close();
+        this.router.navigate(['/mainApp']);
+    }
+
 
 
 
     constructor(private route:ActivatedRoute
         ,private userService:AuthService
-        ,private socketService:SocketService,private  arenaService:ArenaServices,private questionServices:QuestionServices,private questionAnswerService:QuestionAnswerServices){}
+        ,private socketService:SocketService
+        ,private  arenaService:ArenaServices
+        ,private questionServices:QuestionServices
+        ,private questionAnswerService:QuestionAnswerServices
+        ,private router:Router){}
 
     ngOnInit(): any {
         console.log('onInit');
@@ -48,6 +58,7 @@ export class QuestionStructure implements OnInit{
         this.socketService.enterArena(this.arenaId,this.userId);
         this.statusPlayed();
         this.getArenaQuestions();
+
 /*
         this.getQuestionsANS();
 */
@@ -88,10 +99,10 @@ export class QuestionStructure implements OnInit{
                     error => console.error(error)
                 );
             var questionPlayed=new  QuestionPlayed(this.arenaId,activeQuestion.questionId);
-            this.questionServices.questionPlayed(questionPlayed)
+        /*    this.questionServices.questionPlayed(questionPlayed)
                 .subscribe(
                     data=>console.log(data),
-                    error=>console.log(error));
+                    error=>console.log(error));*/
 
 
 
@@ -100,19 +111,12 @@ export class QuestionStructure implements OnInit{
 
 
         }else {
-            var questionAnswer=new AnsweredQuestion(activeQuestion.questionId,false);
-            var  questionAns=new ArenaQuestion(this.arenaId,this.userId,questionAnswer);
-           /* this.questionService.saveAnswerdQuestion(questionAns)
-                .subscribe(
-                    data => console.log(data),
-                    error => console.error(error)
-                );*/
             var questionPlayed=new  QuestionPlayed(this.arenaId,activeQuestion.questionId);
-            this.questionServices.questionPlayed(questionPlayed)
+          /*  this.questionServices.questionPlayed(questionPlayed)
                 .subscribe(
                     data=>console.log(data),
                     error=>console.log(error));
-            this.getCorrectQuestions();
+            this.getCorrectQuestions();*/
             this.isLost=true;
             this.open();
         }

@@ -1,4 +1,3 @@
-<form>
     <h3>{{userName}} you are playing....</h3>
         <div *ngIf="!isLost">
             <div  *ngFor="let question of arenaQuestions; let i=index " class="row">
@@ -42,10 +41,10 @@
     <modal-body>
         Sorry,you lost! You answered correct :
     </modal-body>
-    <modal-footer [show-default-buttons]="true"></modal-footer>
-</modal>
+        <modal-footer>
+                <button type="button" class="btn btn-primary" (click)="close()">Ok</button>
+        </modal-footer></modal>
 
 
 
 
-</form>

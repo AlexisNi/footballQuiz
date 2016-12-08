@@ -113,10 +113,16 @@ export class GameItemComponent implements OnInit{
             .subscribe(
                 (data:Data)=> {
 
+                });
+        this.modal.open();
+      /*  var sub= this.gameListService.getResult(this.userId,arenaId)
+            .subscribe(
+                (data:Data)=> {
+
 
                     console.log(data);
                 });
-        this.modal.open();
+        sub.unsubscribe();*/
 
 
 
