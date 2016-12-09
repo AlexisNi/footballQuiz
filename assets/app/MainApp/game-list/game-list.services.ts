@@ -4,6 +4,7 @@ import {ArenaUserId} from "../models/arenaUserId";
 import {Observable} from "rxjs";
 import 'rxjs/add/operator/map';
 import {ArenaUsers} from "../models/arenaUsers";
+import {PlayerResult} from "./models/playerResults";
 
 /**
  * Created by alex on 06/12/2016.
@@ -22,7 +23,17 @@ export class GameListServices{
         const body = JSON.stringify(arenaUserInfo);
         const headers = new Headers({'Content-Type': 'application/json'});
         return this.http.post('http://localhost:3000/questionANS/getResults', body, {headers: headers})
-            .map((response: Response) => response.json())
+            .map((response: Response) =>{
+                const winner=response.json().winner;
+                const loser=response.json().loser;
+                var WinnerResult=new PlayerResult(
+                    winner._id,
+                    winner.lastName,
+                    loser._id,
+                    loser.lastName
+                );
+                return WinnerResult;
+            })
             .catch((error: Response) =>Observable.throw(error.json()));
     }
 

@@ -125,10 +125,7 @@ router.post('/getResults',function (req,res,next) {
                     error:err
                 });
             }
-            if(answerCount=null){
-                res.sendStatus(404);
 
-            }
           ArenaQuestions.findOne().where({ $and:[ {arenaId:arenaId}, {userId:{$ne:userId}}]})
               .populate('userId','lastName')
               .exec(function (err,answerCountB) {

@@ -7,7 +7,7 @@ export class SocketService{
 
     sendUserId(userId:string)
     {
-        this.socket=io('http://localhost:4000',{query:"UserName: Alex"});
+        this.socket=io('http://localhost:4000/game',{query:"UserName: Alex"});
         this.socket.emit('get-userId',userId);
 
     }

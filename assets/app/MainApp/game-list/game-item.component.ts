@@ -9,6 +9,7 @@ import {ModalComponent} from "ng2-bs3-modal/components/modal";
 import {Data} from "@angular/router";
 import {ArenaUserId} from "../models/arenaUserId";
 import {GameListServices} from "./game-list.services";
+import {PlayerResult} from "./models/playerResults";
 
 
 @Component({
@@ -58,7 +59,12 @@ If user hasnt played
             <h4 class="modal-title">You played against {{ arena.lastName }}</h4>
         </modal-header>
         <modal-body>
-        Click ok to accept the prize!!
+            <div *ngIf="playerResult?.winnerUserId==userId">
+            <p>Congratulation You Won!!!!</p>
+            </div>    
+            <div *ngIf="playerResult?.loserUserId==userId">
+            <p>Sorry you lost....!!!!</p>
+            </div>
         </modal-body>
         <modal-footer [show-default-buttons]="true"></modal-footer>
     </modal>
@@ -100,7 +106,7 @@ export class GameItemComponent implements OnInit{
     }
     @Input() arena:ArenaUsers;
     private userId;
-    private result;
+    private playerResult:PlayerResult;
 
     constructor(private userIdService:AuthService,private gameListService:GameListServices){}
 
@@ -111,37 +117,11 @@ export class GameItemComponent implements OnInit{
         var arenaUserId=new ArenaUserId(this.userId,arenaId)
         this.gameListService.getResult(arenaUserId)
             .subscribe(
-                (data:Data)=> {
+                (playerResult:PlayerResult)=> {
+                    this.playerResult=playerResult;
+                    console.log(playerResult);
 
                 });
         this.modal.open();
-      /*  var sub= this.gameListService.getResult(this.userId,arenaId)
-            .subscribe(
-                (data:Data)=> {
-
-
-                    console.log(data);
-                });
-        sub.unsubscribe();*/
-
-
-
     }
-
-/*    endSub(arenaId){
-        var sub= this.mainAppService.getResult(this.userId,arenaId)
-            .subscribe(
-                (data:Data)=> {
-
-
-                    console.log(data);
-                });
-        sub.unsubscribe();
-
-
-    }*/
-
-
-
-
 }

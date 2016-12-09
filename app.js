@@ -12,11 +12,11 @@ var questionAns=require('./routes/ArenaQuestion');
 var arenaRoutes=require('./routes/arena');
 var passport=require('passport');
 var app = express();
-var connectedUserList=[];
 var http= require('http').Server(app);
+/*
 var io=require('socket.io')(http);
-
-
+*/
+var io=require('./sockets/sockets');
 
 
 mongoose.connect('localhost:27017/quiz-app');
@@ -53,8 +53,10 @@ app.use(function (req, res, next) {
 
 
 
+/*
 var userInfo=[];
-io.on('connection',function (socket) {
+var nsp=io.of('/game');
+nsp.on('connection',function (socket) {
     console.log('User connected!');
     connectedUserList.push(socket.handshake.query.userName);
 
@@ -93,9 +95,11 @@ io.on('connection',function (socket) {
 
 
 });
+*/
 
 http.listen(4000,function () {
     console.log('Listen to 4000');
 });
+io.startSocketServer(http);
 
 module.exports = app;
