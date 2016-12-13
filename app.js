@@ -13,9 +13,6 @@ var arenaRoutes=require('./routes/arena');
 var passport=require('passport');
 var app = express();
 var http= require('http').Server(app);
-/*
-var io=require('socket.io')(http);
-*/
 var io=require('./sockets/sockets');
 
 
@@ -51,51 +48,6 @@ app.use(function (req, res, next) {
     return res.render('index');
 });
 
-
-
-/*
-var userInfo=[];
-var nsp=io.of('/game');
-nsp.on('connection',function (socket) {
-    console.log('User connected!');
-    connectedUserList.push(socket.handshake.query.userName);
-
-    socket.on('disconnect',function () {
-        console.log('User Disconcted');
-        var userData=userInfo[socket.id];
-        if(typeof userData!=='undefined'){
-            socket.leave(userData.arenaId);
-            delete userInfo[socket.id];
-            console.log('player left arena with id  '+userData);
-
-        }
-    });
-
-    socket.on('get-userId',function (userId) {
-        console.log('Welcome user : '+userId);
-
-    });
-    
-    socket.on('leaveArena',function () {
-        console.log('leaver Arena Caught');
-        var userData=userInfo[socket.id];
-        if(typeof userData!=='undefined'){
-            socket.leave(userData.arenaId);
-            delete userInfo[socket.id];
-            console.log('player left arena with id  '+userData.userId);
-        }
-        
-    });
-
-    socket.on('enterArena',function (req) {
-        userInfo[socket.id]=req;
-        socket.join(req.arenaId);
-        console.log('player entered arena with detals :'+ userInfo[socket.id].arenaId+' '+userInfo[socket.id].userId);
-    });
-
-
-});
-*/
 
 http.listen(4000,function () {
     console.log('Listen to 4000');

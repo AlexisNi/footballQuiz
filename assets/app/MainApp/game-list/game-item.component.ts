@@ -10,6 +10,7 @@ import {Data} from "@angular/router";
 import {ArenaUserId} from "../models/arenaUserId";
 import {GameListServices} from "./game-list.services";
 import {PlayerResult} from "./models/playerResults";
+import {SocketService} from "../socketHanding/socket.service";
 
 
 @Component({
@@ -18,6 +19,7 @@ import {PlayerResult} from "./models/playerResults";
 <!--
 If user hasnt played
 -->
+<div *ngIf="!test"><p>Hello test is true!!</p></div>
 <div class="row" *ngIf="arena.userId==userId && arena.user_played==false||arena.inviteId==userId&& arena.invite_played==false">
 <a  [routerLink]="arena.arenaId" class="list-group-item clearfix" routerLinkActive="active"> 
     <article class="panel panel-default" [ngStyle]="{backgroundColor: color}">
@@ -70,6 +72,7 @@ If user hasnt played
     </modal>
 </div>
 
+
  
 
 
@@ -101,6 +104,7 @@ If user hasnt played
 export class GameItemComponent implements OnInit{
     @ViewChild('myModal')
     modal: ModalComponent;
+    test;
     ngOnInit(): void {
         this.userId=this.userIdService.getUserId();
     }
@@ -108,7 +112,7 @@ export class GameItemComponent implements OnInit{
     private userId;
     private playerResult:PlayerResult;
 
-    constructor(private userIdService:AuthService,private gameListService:GameListServices){}
+    constructor(private userIdService:AuthService,private gameListService:GameListServices,private socket:SocketService){}
 
 
     showResult(arenaId)
@@ -122,6 +126,20 @@ export class GameItemComponent implements OnInit{
                     console.log(playerResult);
 
                 });
+
         this.modal.open();
+        this.gamePlayed();
+        this.getTest();
     }
+    gamePlayed(){
+        this.socket.finsihGame();
+
+    }
+    getTest(){
+        this.socket.getFinishGaame().subscribe(status=>{
+            console.log(status);
+            this.test=status;
+        });
+    }
+
 }

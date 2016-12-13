@@ -5,6 +5,7 @@ import {User} from "../../auth/user";
 import {ArenaUsers} from "../models/arenaUsers";
 import {ArenaPlayers} from "../models/arenaPlayers";
 import {OpponentFindService} from "./opponent-find.sevices";
+import {SocketService} from "../socketHanding/socket.service";
 
 
 @Component({
@@ -20,7 +21,7 @@ export class OpponentComponentFind implements OnInit{
     inviteId;
     searched=false;
 
-    constructor(private opponentFindService:OpponentFindService){}
+    constructor(private opponentFindService:OpponentFindService,private socketService:SocketService){}
 
     ngOnInit(): void {
         this.myForm=new FormGroup({
@@ -51,10 +52,16 @@ export class OpponentComponentFind implements OnInit{
         var arenaPlayer=new ArenaPlayers(userId,inviteId);
         this.opponentFindService.createArena(arenaPlayer)
             .subscribe(
-                data => console.log(data),
-                error => console.error(error)
-            );
 
+
+
+                data => {console.log(data);
+                    this.socketService.reqArenas(inviteId);
+                },
+                error => console.error(error),
+
+
+    );
 
 
     }
