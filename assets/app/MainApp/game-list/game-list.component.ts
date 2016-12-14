@@ -24,12 +24,11 @@ export  class GameListcomponent implements OnInit{
 
     ngOnInit(): any {
         console.log('on init');
-        this.gameListService.getArenas()
+/*        this.gameListService.getArenas()
             .subscribe(
                 (arena:ArenaUsers[])=> {
                     this.arenas=arena;
-                    console.log(arena);
-                });
+                });*/
         this.socketService.reqArenas(this.user.getUserId());
         this.getAreaUpdate();
 

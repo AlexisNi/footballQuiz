@@ -19,7 +19,6 @@ import {SocketService} from "../socketHanding/socket.service";
 <!--
 If user hasnt played
 -->
-<div *ngIf="!test"><p>Hello test is true!!</p></div>
 <div class="row" *ngIf="arena.userId==userId && arena.user_played==false||arena.inviteId==userId&& arena.invite_played==false">
 <a  [routerLink]="arena.arenaId" class="list-group-item clearfix" routerLinkActive="active"> 
     <article class="panel panel-default" [ngStyle]="{backgroundColor: color}">
@@ -40,7 +39,7 @@ If user hasnt played
 
 
 <div class="row" *ngIf="arena.userId==userId && arena.user_played==true||arena.inviteId==userId&& arena.invite_played==true">
-<a [class.disabled]="true"  [routerLink]="arena.arenaId" class="list-group-item clearfix" routerLinkActive="active"> 
+<a [class.disabled]="true"  [routerLink]="arena.arenaId" class="list-group-item clearfix" routerLinkActive="active" > 
     <article class="panel panel-default" [ngStyle]="{backgroundColor: color}">
     <div class="panel-body">
         {{arena?.lastName}} 
@@ -104,16 +103,30 @@ If user hasnt played
 export class GameItemComponent implements OnInit{
     @ViewChild('myModal')
     modal: ModalComponent;
-    test;
-    ngOnInit(): void {
-        this.userId=this.userIdService.getUserId();
-    }
     @Input() arena:ArenaUsers;
     private userId;
     private playerResult:PlayerResult;
+    private inviteId;
+
+
+    ngOnInit(): void {
+
+
+        this.userId=this.userIdService.getUserId();
+    }
 
     constructor(private userIdService:AuthService,private gameListService:GameListServices,private socket:SocketService){}
 
+    getInviteId(inviteId,userId){
+        if (userId==this.userIdService.getUserId()){
+            this.inviteId=inviteId;
+        }else{
+            this.inviteId=userId
+        }
+        console.log(this.inviteId);
+
+
+    }
 
     showResult(arenaId)
     {
@@ -128,18 +141,8 @@ export class GameItemComponent implements OnInit{
                 });
 
         this.modal.open();
-        this.gamePlayed();
-        this.getTest();
-    }
-    gamePlayed(){
-        this.socket.finsihGame();
 
     }
-    getTest(){
-        this.socket.getFinishGaame().subscribe(status=>{
-            console.log(status);
-            this.test=status;
-        });
-    }
+
 
 }

@@ -71,35 +71,44 @@ module.exports={
 
 
             socket.on('getArenas',function (req) {
-                var arenasArray=[];
-                User.findOne({_id:'58308c2f81611516206007eb'/*socket.handshake.query.userId*/})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE USER ROW AND SHOW THE LAST NAME OF INVITE
-                    .populate('arenas','_id')
-                    .exec(function (err, arenasArr) {
-                        if (err) {
-                            throw err;
-                        }
-                        for (var i = 0; i < arenasArr.arenas.length; i++) {
-                            arenasArray.push(arenasArr.arenas[i]._id);
-                        }
-                        console.log(req);
-                        ArenaUser.find({$and: [{user:'58308c2f81611516206007eb'}, {_id: {$in: arenasArray}}]})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE INVITE ROW AND SHOWS THE LAST NAME OF THE USER
-                            .populate('invite', 'lastName')
-                            .exec(function (err, arenas) {
-                                if (err) {
-                                    throw err;
-                                }
-                                ArenaUser.find({$and: [{invite:'58308c2f81611516206007eb'}, {_id: {$in: arenasArray}}]})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE INVITE ROW AND SHOWS THE LAST NAME OF THE USER
-                                    .populate('user', 'lastName')
-                                    .exec(function (err, arenasUser) {
-                                        if (err) {
 
-                                            throw err;
-                                        }
-                                        connectedUserList['58308c2f81611516206007eb'].emit('loadArenas', {obj:arenas,objUser:arenasUser})
-                                    });
-                            });
-                    });
+                if(req.userId!=null) {
+                    var arenasArray = [];
+                    User.findOne({_id: req.userId/*socket.handshake.query.userId*/})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE USER ROW AND SHOW THE LAST NAME OF INVITE
+                        .populate('arenas', '_id')
+                        .exec(function (err, arenasArr) {
+                            if (err) {
+                                throw err;
+                            }
+                            for (var i = 0; i < arenasArr.arenas.length; i++) {
+                                arenasArray.push(arenasArr.arenas[i]._id);
+                            }
+                            console.log(req);
+                            ArenaUser.find({$and: [{user: req.userId}, {_id: {$in: arenasArray}}]})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE INVITE ROW AND SHOWS THE LAST NAME OF THE USER
+                                .populate('invite', 'lastName')
+                                .exec(function (err, arenas) {
+                                    if (err) {
+                                        throw err;
+                                    }
+                                    ArenaUser.find({$and: [{invite: req.userId}, {_id: {$in: arenasArray}}]})//HERE IS SEARCHING WITH THE USER TOKEN PARAMETER IN THE ARENA DATABASE AT THE INVITE ROW AND SHOWS THE LAST NAME OF THE USER
+                                        .populate('user', 'lastName')
+                                        .exec(function (err, arenasUser) {
+                                            if (err) {
+
+                                                throw err;
+                                            }
+                                            if(connectedUserList[req.userId]!=null) {
+                                                connectedUserList[req.userId].emit('loadArenas', {
+                                                    obj: arenas,
+                                                    objUser: arenasUser
+                                                })
+                                            }
+                                        });
+                                });
+                        });
+                }
             });
+
 
 
 

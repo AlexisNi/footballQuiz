@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b7be9373-c08a-489a-b92f-c1d174d34b88" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/app/MainApp/game-list/game-item.component.ts" afterPath="$PROJECT_DIR$/assets/app/MainApp/game-list/game-item.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/app/MainApp/game-list/game-list.component.ts" afterPath="$PROJECT_DIR$/assets/app/MainApp/game-list/game-list.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/app/MainApp/opponent-find/opponent-find.component.ts" afterPath="$PROJECT_DIR$/assets/app/MainApp/opponent-find/opponent-find.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/app/MainApp/socketHanding/socket.service.ts" afterPath="$PROJECT_DIR$/assets/app/MainApp/socketHanding/socket.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/bundle.js" afterPath="$PROJECT_DIR$/public/js/app/bundle.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sockets/sockets.js" afterPath="$PROJECT_DIR$/sockets/sockets.js" />
     </list>
@@ -36,47 +32,48 @@
       <file leaf-file-name="game-item.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/app/MainApp/game-list/game-item.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="142" column="5" selection-start-line="142" selection-start-column="5" selection-end-line="142" selection-end-column="5" />
+            <state relative-caret-position="-143">
+              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#42#108#0" expanded="true" />
-                <marker date="1481638822504" expanded="true" signature="647:669" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="852:1252" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="945:1243" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="1025:1238" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="1054:1094" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="1128:1223" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="1157:1209" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="1381:2566" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="1381:2567" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="1498:1796" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="1578:1791" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="1607:1647" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="1681:1776" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="1710:1762" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="1863:1974" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="2036:2560" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="2080:2185" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="2206:2479" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="2267:2332" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="2396:2457" ph="..." />
-                <marker date="1481638822504" expanded="true" signature="2608:2722" ph="{...}" />
-                <marker date="1481638822504" expanded="true" signature="2738:2852" ph="{...}" />
-                <marker date="1481638822504" expanded="true" signature="2871:2945" ph="{...}" />
+                <marker date="1481720608445" expanded="true" signature="647:669" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="799:1199" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="892:1190" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="972:1185" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="1001:1041" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="1075:1170" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="1104:1156" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="1328:2514" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="1328:2515" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="1445:1744" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="1446:1744" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="1526:1739" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="1555:1595" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="1629:1724" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="1658:1710" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="1811:1922" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="1984:2508" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="2028:2133" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="2154:2427" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="2215:2280" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="2344:2405" ph="..." />
+                <marker date="1481720608445" expanded="true" signature="2556:2670" ph="{...}" />
+                <marker date="1481720608445" expanded="true" signature="2686:2800" ph="{...}" />
+                <marker date="1481720608445" expanded="true" signature="2819:2893" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game-list.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/app/MainApp/game-list/game-list.component.ts">
+      <file leaf-file-name="game-list.services.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/app/MainApp/game-list/game-list.services.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+            <state relative-caret-position="-34">
+              <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
               <folding>
-                <element signature="e#0#48#0" expanded="true" />
-                <marker date="1481668501316" expanded="true" signature="493:638" ph="..." />
+                <element signature="e#0#41#0" expanded="true" />
+                <element signature="n#!!doc;n#GameListServices#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -85,34 +82,35 @@
       <file leaf-file-name="arena.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/app/MainApp/arena/arena.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="230">
+              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
               <folding>
-                <marker date="1480504105220" expanded="true" signature="237:422" ph="..." />
-                <marker date="1480504105220" expanded="true" signature="264:345" ph="..." />
-                <marker date="1480504105220" expanded="true" signature="372:415" ph="..." />
+                <marker date="1481720606527" expanded="true" signature="237:422" ph="..." />
+                <marker date="1481720606527" expanded="true" signature="264:345" ph="..." />
+                <marker date="1481720606527" expanded="true" signature="372:415" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/app/auth/auth.service.ts">
+      <file leaf-file-name="game-list.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/app/MainApp/game-list/game-list.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-318">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="112">
+              <caret line="26" column="2" selection-start-line="26" selection-start-column="0" selection-end-line="30" selection-end-column="21" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#0#48#0" expanded="true" />
+                <marker date="1481720409664" expanded="true" signature="493:638" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="socket.service.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="socket.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/app/MainApp/socketHanding/socket.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1065">
-              <caret line="67" column="51" selection-start-line="67" selection-start-column="51" selection-end-line="67" selection-end-column="51" />
+            <state relative-caret-position="363">
+              <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -120,23 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="opponent-find.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/app/MainApp/opponent-find/opponent-find.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-188">
-              <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sockets.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sockets.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sockets/sockets.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="83" column="39" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
+            <state relative-caret-position="408">
+              <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
               </folding>
@@ -191,7 +177,6 @@
         <option value="$PROJECT_DIR$/views/index.hbs" />
         <option value="$PROJECT_DIR$/assets/app/MainApp/main.component.ts" />
         <option value="$PROJECT_DIR$/assets/app/MainApp/arenaUsers.ts" />
-        <option value="$PROJECT_DIR$/assets/app/MainApp/arena/arena.component.ts" />
         <option value="$PROJECT_DIR$/assets/app/MainApp/ArenaUserId.ts" />
         <option value="$PROJECT_DIR$/assets/app/MainApp/arenaUserId.ts" />
         <option value="$PROJECT_DIR$/assets/app/MainApp/opponent-find/opponent-find.sevices.ts" />
@@ -208,11 +193,12 @@
         <option value="$PROJECT_DIR$/assets/app/MainApp/game-list/game-list.services.ts" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/bin/www" />
-        <option value="$PROJECT_DIR$/assets/app/MainApp/game-list/game-item.component.ts" />
-        <option value="$PROJECT_DIR$/assets/app/MainApp/socketHanding/socket.service.ts" />
         <option value="$PROJECT_DIR$/assets/app/MainApp/opponent-find/opponent-find.component.ts" />
+        <option value="$PROJECT_DIR$/assets/app/MainApp/socketHanding/socket.service.ts" />
         <option value="$PROJECT_DIR$/sockets/sockets.js" />
         <option value="$PROJECT_DIR$/assets/app/MainApp/game-list/game-list.component.ts" />
+        <option value="$PROJECT_DIR$/assets/app/MainApp/game-list/game-item.component.ts" />
+        <option value="$PROJECT_DIR$/assets/app/MainApp/arena/arena.component.ts" />
       </list>
     </option>
   </component>
@@ -228,10 +214,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="x" value="-14" />
+    <option name="width" value="1942" />
+    <option name="height" value="1092" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -258,6 +243,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -564,8 +551,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -721,11 +706,12 @@
       <workItem from="1481534036915" duration="7940000" />
       <workItem from="1481557788574" duration="2740000" />
       <workItem from="1481621452613" duration="20268000" />
+      <workItem from="1481707411541" duration="9449000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="470063000" />
+    <option name="totallyTimeSpent" value="479512000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -737,18 +723,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-14" y="0" width="1942" height="1092" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20021075" sideWeight="0.49496403" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19957983" sideWeight="0.49496403" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32846716" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25627616" sideWeight="0.50185084" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32012513" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38317758" sideWeight="0.49814913" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3826903" sideWeight="0.49814913" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.505036" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39937434" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -757,6 +742,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1034,14 +1020,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/ArenaQuestion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1106">
-          <caret line="126" column="13" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/questions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -1053,7 +1031,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1061,7 +1038,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1077,7 +1053,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1086,17 +1061,6 @@
         <state relative-caret-position="17">
           <caret line="11" column="74" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="74" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/app/MainApp/game-list/game-list.services.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="68" column="17" selection-start-line="57" selection-start-column="14" selection-end-line="68" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="n#!!doc;n#GameListServices#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1130,75 +1094,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/app/MainApp/opponent-find/opponent-find.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-188">
-          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sockets/sockets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="83" column="39" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/app/MainApp/game-list/game-item.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="142" column="5" selection-start-line="142" selection-start-column="5" selection-end-line="142" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#42#108#0" expanded="true" />
-            <marker date="1481638822504" expanded="true" signature="647:669" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="852:1252" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="945:1243" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="1025:1238" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="1054:1094" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="1128:1223" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="1157:1209" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="1381:2566" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="1381:2567" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="1498:1796" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="1578:1791" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="1607:1647" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="1681:1776" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="1710:1762" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="1863:1974" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="2036:2560" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="2080:2185" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="2206:2479" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="2267:2332" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="2396:2457" ph="..." />
-            <marker date="1481638822504" expanded="true" signature="2608:2722" ph="{...}" />
-            <marker date="1481638822504" expanded="true" signature="2738:2852" ph="{...}" />
-            <marker date="1481638822504" expanded="true" signature="2871:2945" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/app/MainApp/arena/arena.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <marker date="1480504105220" expanded="true" signature="237:422" ph="..." />
-            <marker date="1480504105220" expanded="true" signature="264:345" ph="..." />
-            <marker date="1480504105220" expanded="true" signature="372:415" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/app/auth/auth.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-318">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -1206,23 +1104,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/app/MainApp/game-list/game-list.component.ts">
+    <entry file="file://$PROJECT_DIR$/routes/ArenaQuestion.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+        <state relative-caret-position="259">
+          <caret line="126" column="13" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/app/MainApp/opponent-find/opponent-find.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
-            <marker date="1481668501316" expanded="true" signature="493:638" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/app/MainApp/socketHanding/socket.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="67" column="51" selection-start-line="67" selection-start-column="51" selection-end-line="67" selection-end-column="51" />
+        <state relative-caret-position="363">
+          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/app/MainApp/arena/arena.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding>
+            <marker date="1481720606527" expanded="true" signature="237:422" ph="..." />
+            <marker date="1481720606527" expanded="true" signature="264:345" ph="..." />
+            <marker date="1481720606527" expanded="true" signature="372:415" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/app/MainApp/game-list/game-list.services.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="n#!!doc;n#GameListServices#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/app/MainApp/game-list/game-list.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="26" column="2" selection-start-line="26" selection-start-column="0" selection-end-line="30" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+            <marker date="1481720409664" expanded="true" signature="493:638" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/app/MainApp/game-list/game-item.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-143">
+          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#42#108#0" expanded="true" />
+            <marker date="1481720608445" expanded="true" signature="647:669" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="799:1199" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="892:1190" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="972:1185" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="1001:1041" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="1075:1170" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="1104:1156" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="1328:2514" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="1328:2515" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="1445:1744" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="1446:1744" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="1526:1739" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="1555:1595" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="1629:1724" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="1658:1710" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="1811:1922" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="1984:2508" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="2028:2133" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="2154:2427" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="2215:2280" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="2344:2405" ph="..." />
+            <marker date="1481720608445" expanded="true" signature="2556:2670" ph="{...}" />
+            <marker date="1481720608445" expanded="true" signature="2686:2800" ph="{...}" />
+            <marker date="1481720608445" expanded="true" signature="2819:2893" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sockets/sockets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
