@@ -41,9 +41,7 @@ module.exports={
             var userData=userInfo[socket.id];
             if(typeof userData!=='undefined'){
                 socket.leave(userData.arenaId);
-                console.log('player left arena with id  '+userData.userId);
-                connectedUserList[socket.handshake.query.userId].emit('updateStatus',{status_played:true});
-            }
+                console.log('player left arena with id  '+userData.userId);}
 
         });
 
@@ -51,8 +49,8 @@ module.exports={
             userInfo[socket.id]=req;
             socket.join(req.arenaId);
             console.log('player entered arena with detals :'+ userInfo[socket.id].arenaId+' '+userInfo[socket.id].userId);
-            console.log(userInfo.indexOf(req.userId));
         });
+
 
             socket.on('setfinish',function (data) {
                nsp.emit('getFinish',{status:data}) ;
@@ -69,8 +67,8 @@ module.exports={
 
 
 
-
             socket.on('getArenas',function (req) {
+                console.log('here get arenas!')
 
                 if(req.userId!=null) {
                     var arenasArray = [];

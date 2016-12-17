@@ -203,8 +203,9 @@ router.post('/playedStatus',function (req,res,next) {
                             error: err
                         });
                     }
-                    res.sendStatus(200);
-
+                    res.status(200).json({
+                        message: 'success',
+                    });
                 });
             }else {
                 ArenaUser.update({_id:arenaId},{$set:{invite_played:true}},function (err,result) {
@@ -214,8 +215,9 @@ router.post('/playedStatus',function (req,res,next) {
                             error: err
                         });
                     }
-                    res.sendStatus(200);
-
+                    res.status(200).json({
+                        message: 'success',
+                    });
                 });
             }
 

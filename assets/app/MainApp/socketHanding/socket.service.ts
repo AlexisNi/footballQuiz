@@ -20,52 +20,18 @@ export class SocketService{
     enterArena(arenaId:string,userId:string){
         this.socket.emit('enterArena',{arenaId:arenaId,userId:userId});
     }
-    arenaLeave(){
+
+  arenaLeave(userId){
         this.socket.emit('leaveArena');
+        this.reqArenas(userId);
     }
+    
 
 
-    finsihGame(){
-        this.socket.emit('setfinish',false);
-
-    }
-
-    getFinishGaame(){
-        let obsevable=new Observable((observer:any)=>{
-            this.socket.on('getFinish',(data:any)=>{
-                observer.next(data);
-            });
-            return()=>{
-                this.socket.disconnect();
-            }
-        })
-        return obsevable;
-    }
-
-    updateStatus(){
-        let obsevable=new Observable((observer:any)=>{
-            this.socket.on('updateStatus',(data:any)=>{
-                observer.next(data);
-            });
-            return()=>{
-                this.socket.disconnect();
-            }
-        })
-        return obsevable;
-
-
-    }
-    updateArenas()
-    {
-        this.socket.on('',function () {
-            console.log('arenas has been updated');
-        });
-
-    }
 
 
     reqArenas(userId){
-        this.socket.emit('getArenas',{userId:userId})
+        this.socket.emit('getArenas',{userId:userId});
     }
     getArenas(){
         let observable=new Observable((observer:any)=>{
@@ -109,7 +75,7 @@ export class SocketService{
                 this.socket.disconnect();
             }
         })
-        return observable
+        return observable;
     }
 
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, AfterViewInit} from '@angular/core';
+import {Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, AfterViewInit, OnDestroy} from '@angular/core';
 import {Question} from "./questionModels/question";
 import {QuestionService} from "./question.service";
 import {ArenaQuestion} from "./questionModels/arena_question";
@@ -18,11 +18,19 @@ import {QuestionAnswerServices} from "./questionServices/questionAnswer.service"
     selector: 'my-questionScore',
     templateUrl: './question-structure.component.html'
 })
-export class QuestionStructure implements OnInit{
+export class QuestionStructure implements OnInit, OnDestroy{
+    ngOnDestroy(): void {
+        console.log('On destroy');
+
+        this.socketService.arenaLeave(this.inviteId);
+
+
+    }
 
     @Input()  index=0;
     userName:string;
     userId: string;
+    inviteId:string;
     isLost;
     private  arenaId:string;
     private  subscription:Subscription;
@@ -48,7 +56,8 @@ export class QuestionStructure implements OnInit{
         ,private  arenaService:ArenaServices
         ,private questionServices:QuestionServices
         ,private questionAnswerService:QuestionAnswerServices
-        ,private router:Router){}
+        ,private router:Router
+        ){}
 
     ngOnInit(): any {
         console.log('onInit');
@@ -128,6 +137,8 @@ export class QuestionStructure implements OnInit{
             (params:any)=>{
                 if (params.hasOwnProperty('id')){
                     this.arenaId=params['id'];
+                    this.inviteId=params['UserId'];
+                    console.log(this.inviteId);
                 }
             }
         );

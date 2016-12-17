@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, OnDestroy} from "@angular/core";
 import {MainAppService} from "../mainApp.services";
 import {ArenaUsers} from "../models/arenaUsers";
 import {GameListServices} from "./game-list.services";
@@ -20,15 +20,17 @@ import {AuthService} from "../../auth/auth.service";
 })
 
 export  class GameListcomponent implements OnInit{
+/*    ngOnDestroy(): any {
+        console.log('ondestroy arenaas')
+        this.socketService.getArenas().subscribe(
+            (arena:ArenaUsers[])=> {
+                console.log(arena)
+            }).unsubscribe();
+    }*/
 
 
     ngOnInit(): any {
         console.log('on init');
-/*        this.gameListService.getArenas()
-            .subscribe(
-                (arena:ArenaUsers[])=> {
-                    this.arenas=arena;
-                });*/
         this.socketService.reqArenas(this.user.getUserId());
         this.getAreaUpdate();
 
@@ -40,7 +42,7 @@ export  class GameListcomponent implements OnInit{
         this.socketService.getArenas().subscribe(
             (arena:ArenaUsers[])=> {
                 this.arenas=arena;
-                console.log(arena);
+                console.log(arena)
             });
     }
 }

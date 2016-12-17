@@ -16,10 +16,9 @@ import {SocketService} from "../socketHanding/socket.service";
 </div>`
 })
 export class ArenaComponent implements  OnInit{
-    constructor(private userService:AuthService,private socketServices:SocketService){}
+    constructor(private userService:AuthService){}
     private userName;
     ngOnInit(): void {
-        this.socketServices.arenaLeave();
         this.userService.getUser()
             .subscribe(
                 (user:string)=> {

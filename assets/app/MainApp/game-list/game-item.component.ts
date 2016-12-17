@@ -20,7 +20,8 @@ import {SocketService} from "../socketHanding/socket.service";
 If user hasnt played
 -->
 <div class="row" *ngIf="arena.userId==userId && arena.user_played==false||arena.inviteId==userId&& arena.invite_played==false">
-<a  [routerLink]="arena.arenaId" class="list-group-item clearfix" routerLinkActive="active"> 
+<div *ngIf="arena.userId==userId">
+<a  [routerLink]="[arena.arenaId, { UserId: arena.inviteId }]"  class="list-group-item clearfix" routerLinkActive="active"> 
     <article class="panel panel-default" [ngStyle]="{backgroundColor: color}">
     <div class="panel-body">
         {{arena?.lastName}} 
@@ -32,14 +33,26 @@ If user hasnt played
     </footer>
     </article>
 </a>
-
+</div>
+<div *ngIf="arena.inviteId==userId">
+<a  [routerLink]="[arena.arenaId, { UserId: arena.userId }]"  class="list-group-item clearfix" routerLinkActive="active"> 
+    <article class="panel panel-default" [ngStyle]="{backgroundColor: color}">
+    <div class="panel-body">
+        {{arena?.lastName}} 
+    </div>
+    <footer class="panel-footer">
+        <div class="author">
+            {{arena?.status_accept}}
+        </div>
+    </footer>
+    </article>
+</a>
+</div>
 
 </div>
 
-
-
 <div class="row" *ngIf="arena.userId==userId && arena.user_played==true||arena.inviteId==userId&& arena.invite_played==true">
-<a [class.disabled]="true"  [routerLink]="arena.arenaId" class="list-group-item clearfix" routerLinkActive="active" > 
+<a [class.disabled]="true"  [routerLink]="arena.arenaId" class="list-group-item clearfix" routerLinkActive="active"> 
     <article class="panel panel-default" [ngStyle]="{backgroundColor: color}">
     <div class="panel-body">
         {{arena?.lastName}} 
@@ -108,14 +121,15 @@ export class GameItemComponent implements OnInit{
     private playerResult:PlayerResult;
     private inviteId;
 
+    @Input() var:any;
+
 
     ngOnInit(): void {
-
 
         this.userId=this.userIdService.getUserId();
     }
 
-    constructor(private userIdService:AuthService,private gameListService:GameListServices,private socket:SocketService){}
+    constructor(private userIdService:AuthService,private gameListService:GameListServices){}
 
     getInviteId(inviteId,userId){
         if (userId==this.userIdService.getUserId()){
