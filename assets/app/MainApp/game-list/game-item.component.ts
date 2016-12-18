@@ -117,7 +117,7 @@ export class GameItemComponent implements OnInit{
     @ViewChild('myModal')
     modal: ModalComponent;
     @Input() arena:ArenaUsers;
-    private userId;
+     userId;
     private playerResult:PlayerResult;
     private inviteId;
 
