@@ -12,7 +12,7 @@ export class SocketService{
 
     sendUserId(userId:string)
     {
-        this.socket=io('http://localhost:4000/game',{query:{userId:userId}});
+        this.socket=io(' https://footballarenaquiz.herokuapp.com/game',{query:{userId:userId}});
         this.socket.emit('get-userId',userId);
 
     }

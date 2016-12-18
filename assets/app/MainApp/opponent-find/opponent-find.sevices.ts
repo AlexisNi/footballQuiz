@@ -16,7 +16,7 @@ export class OpponentFindService{
     findUser(userName:User) {
         const body = JSON.stringify(userName);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post('http://localhost:3000/user/find', body, {headers: headers})
+        return this.http.post(' https://footballarenaquiz.herokuapp.com/user/find', body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) =>Observable.throw(error.json()));
     }
@@ -26,7 +26,7 @@ export class OpponentFindService{
         const body = JSON.stringify(arenaPlayer);
         const token=localStorage.getItem('token')? '?token='+localStorage.getItem('token') : '';
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post('http://localhost:3000/arena'+token, body, {headers: headers})
+        return this.http.post(' https://footballarenaquiz.herokuapp.com/arena'+token, body, {headers: headers})
             .map((response: Response) => {
                 const arenaUsers = new ArenaUsers(response.json().obj._id,
                     response.json().obj.user._id,

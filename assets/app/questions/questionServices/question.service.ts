@@ -15,7 +15,7 @@ export class QuestionServices{
 
 
     getArenaQuestions(id:String){
-        return this.http.get('http://localhost:3000/question/arenaQuestions'+'?id='+id).
+        return this.http.get(' https://footballarenaquiz.herokuapp.com/question/arenaQuestions'+'?id='+id).
         map((response:Response)=>{
             const questions=response.json().obj;
             let transformedQuestions:Question[]=[];
@@ -43,7 +43,7 @@ export class QuestionServices{
     questionPlayed(questionPlayed:QuestionPlayed){
         const body = JSON.stringify(questionPlayed);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post('http://localhost:3000/question/questionPlayed', body, {headers: headers})
+        return this.http.post(' https://footballarenaquiz.herokuapp.com/question/questionPlayed', body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) =>Observable.throw(error.json()));
     }

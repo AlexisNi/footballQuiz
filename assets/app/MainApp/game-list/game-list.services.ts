@@ -22,7 +22,7 @@ export class GameListServices{
     getResult(arenaUserInfo:ArenaUserId){
         const body = JSON.stringify(arenaUserInfo);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post('http://localhost:3000/questionANS/getResults', body, {headers: headers})
+        return this.http.post(' https://footballarenaquiz.herokuapp.com/questionANS/getResults', body, {headers: headers})
             .map((response: Response) =>{
                 const winner=response.json().winner;
                 const loser=response.json().loser;
@@ -39,7 +39,7 @@ export class GameListServices{
 
     getArenas(){
         const token=localStorage.getItem('token')? '?token='+localStorage.getItem('token') : '';
-        return this.http.get('http://localhost:3000/arena/arenas'+token)
+        return this.http.get(' https://footballarenaquiz.herokuapp.com/arena/arenas'+token)
             .map((response: Response) => {
                 const arenas = response.json().obj;
                 let transformedArenas: ArenaUsers[] = [];

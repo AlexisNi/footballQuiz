@@ -16,7 +16,7 @@ var http= require('http').Server(app);
 var io=require('./sockets/sockets');
 
 
-mongoose.connect('localhost:27017/quiz-app');
+mongoose.connect('Alexis:315551a@ds139288.mlab.com:39288/quiz_app');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
